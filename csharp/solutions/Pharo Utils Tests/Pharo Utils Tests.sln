@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharo Utils Tests", "..\..\projects\Pharo Utils Tests\Pharo Utils Tests.csproj", "{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pharo Utils", "..\..\projects\Pharo Utils\Pharo Utils.csproj", "{5FC4F4C4-854A-4C64-A257-AB2E776CF986}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FC4F4C4-854A-4C64-A257-AB2E776CF986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FC4F4C4-854A-4C64-A257-AB2E776CF986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FC4F4C4-854A-4C64-A257-AB2E776CF986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FC4F4C4-854A-4C64-A257-AB2E776CF986}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BB2B275-62DE-43D3-A497-BA4E74A2494A}
+	EndGlobalSection
+EndGlobal

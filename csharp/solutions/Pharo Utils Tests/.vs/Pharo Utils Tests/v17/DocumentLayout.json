@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\repos\\csharpconversion\\CoreCommandLibrary - Solutions\\Pharo Utils Tests\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}|..\\..\\CoreCommandLibrary\\Pharo Utils Tests\\Pharo Utils Tests.csproj|c:\\repos\\csharpconversion\\corecommandlibrary\\pharo utils tests\\apjsontests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FC4F4C4-854A-4C64-A257-AB2E776CF986}|..\\..\\CoreCommandLibrary\\Pharo Utils\\Pharo Utils.csproj|c:\\repos\\csharpconversion\\corecommandlibrary\\pharo utils\\pharostring.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FC4F4C4-854A-4C64-A257-AB2E776CF986}|..\\..\\CoreCommandLibrary\\Pharo Utils\\Pharo Utils.csproj|c:\\repos\\csharpconversion\\corecommandlibrary\\pharo utils\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DF8C9E6-54B9-4985-AB88-6DC340DC152A}|..\\..\\CoreCommandLibrary\\Pharo Utils Tests\\Pharo Utils Tests.csproj|c:\\repos\\csharpconversion\\corecommandlibrary\\pharo utils tests\\stringextensionstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 203,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "APJsonTests.cs",
+              "DocumentMoniker": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils Tests\\APJsonTests.cs",
+              "RelativeDocumentMoniker": "..\\..\\CoreCommandLibrary\\Pharo Utils Tests\\APJsonTests.cs",
+              "ToolTip": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils Tests\\APJsonTests.cs",
+              "RelativeToolTip": "..\\..\\CoreCommandLibrary\\Pharo Utils Tests\\APJsonTests.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAADgv1YAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-19T09:23:11.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "..\\..\\CoreCommandLibrary\\Pharo Utils\\StringExtensions.cs",
+              "ToolTip": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils\\StringExtensions.cs",
+              "RelativeToolTip": "..\\..\\CoreCommandLibrary\\Pharo Utils\\StringExtensions.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAwwE0AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T09:06:35.884Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 197,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PharoString.cs",
+              "DocumentMoniker": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils\\PharoString.cs",
+              "RelativeDocumentMoniker": "..\\..\\CoreCommandLibrary\\Pharo Utils\\PharoString.cs",
+              "ToolTip": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils\\PharoString.cs",
+              "RelativeToolTip": "..\\..\\CoreCommandLibrary\\Pharo Utils\\PharoString.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T09:23:04.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StringExtensionsTests.cs",
+              "DocumentMoniker": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils Tests\\StringExtensionsTests.cs",
+              "RelativeDocumentMoniker": "..\\..\\CoreCommandLibrary\\Pharo Utils Tests\\StringExtensionsTests.cs",
+              "ToolTip": "C:\\repos\\csharpconversion\\CoreCommandLibrary\\Pharo Utils Tests\\StringExtensionsTests.cs",
+              "RelativeToolTip": "..\\..\\CoreCommandLibrary\\Pharo Utils Tests\\StringExtensionsTests.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwK8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-18T09:07:11.874Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
