@@ -159,7 +159,7 @@ PharoCSharpPrintingVisitor >> visitArrayNode: aNode [
 	stream << '[ '.
 	aNode content 
 		do: [ :innerNode | innerNode acceptVisitor: self ]
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 	stream << ' ]'.
 	
 ]
@@ -273,13 +273,13 @@ PharoCSharpPrintingVisitor >> visitClassNode: aNode [
 	aNode hasGenericTypes ifTrue: [ 
 		stream << '<'.
 		aNode genericTypes 
-			do: [ :genericType | stream << genericType ] betweenDo: [ stream << ', ' ].
+			do: [ :genericType | stream << genericType ] separatedBy: [ stream << ', ' ].
 		stream << '>'.
 	].
 	aNode hasSupertypes ifTrue: [ 
 		stream << ' : '.
 		aNode supertypes 
-			do: [ :supertype | stream << supertype ] betweenDo: [ stream << ', ' ]
+			do: [ :supertype | stream << supertype ] separatedBy: [ stream << ', ' ]
 	].
 	stream lf.
 	
@@ -290,11 +290,11 @@ PharoCSharpPrintingVisitor >> visitClassNode: aNode [
 		(aNode variables notEmpty and: [ aNode regions notEmpty ]) ifTrue: [ stream lf ].
 
 		aNode regions do: [ :each | 
-			each acceptVisitor: self ] betweenDo: [ stream lf ].
+			each acceptVisitor: self ] separatedBy: [ stream lf ].
 		(aNode regions notEmpty and: [ aNode staticRegions notEmpty ]) ifTrue: [ stream lf ].
 		
 		aNode staticRegions do: [ :each | 
-			each acceptVisitor: self ]	betweenDo: [ stream lf ].
+			each acceptVisitor: self ]	separatedBy: [ stream lf ].
 	 ].
 	self indent. stream << '}'; lf.
 	
@@ -313,14 +313,14 @@ PharoCSharpPrintingVisitor >> visitConstructorNode: aNode [
 
 	aNode arguments do: [ :arg |
 		arg acceptVisitor: self ]	
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 	stream << ')'.
 	
 	aNode callsBase ifTrue: [ 
 		stream << ' : base('.		
 		aNode arguments do: [ :arg | 
 			stream << arg name  ]	
-			betweenDo: [ stream << ', ' ].
+			separatedBy: [ stream << ', ' ].
 		stream << ')'.		
 		 ].
 	
@@ -358,7 +358,7 @@ PharoCSharpPrintingVisitor >> visitEnumNode: aNode [
 	self indent: [
 		aNode values do: [ :aValue | 
 			stream << aValue.
-		] betweenDo: [ :aValue :index |
+		] separatedBy: [ :aValue :index |
 			stream << ', '.
 			((index \\ 5) = 0) ifTrue: [ 
 				stream lf. self indent ].
@@ -395,7 +395,7 @@ PharoCSharpPrintingVisitor >> visitFileNode: aNode [
 	aNode children 
 		do: [ :each | 
 			each acceptVisitor: self ]
-		betweenDo: [ stream lf; lf ]
+		separatedBy: [ stream lf; lf ]
 ]
 
 { #category : 'accessing' }
@@ -590,7 +590,7 @@ PharoCSharpPrintingVisitor >> visitLambdaNode: aNode [
 	stream << '('.
 	aNode arguments do: [ :arg | 
 		arg acceptVisitor: self ]	
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 
 	(aNode isSingleExpression and: [ aNode statements size = 1 ])
 		ifFalse: [ 
@@ -618,7 +618,7 @@ PharoCSharpPrintingVisitor >> visitListLiteralNode: aNode [
 	stream << 'new List<>[ '.
 	aNode content 
 		do: [ :innerNode | innerNode acceptVisitor: self ]
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 	stream << ' ]'.
 	
 ]
@@ -657,7 +657,7 @@ PharoCSharpPrintingVisitor >> visitMessageSendNode: aNode [
 	stream << '('.
 	aNode arguments 
 		do: [ :each | each acceptVisitor: self ]
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 	stream << ')'.
 	aNode hasParentheses ifTrue: [ stream << ')' ].
 	
@@ -680,14 +680,14 @@ PharoCSharpPrintingVisitor >> visitMethodNode: aNode [
 		stream << '<'.
 		aNode genericArguments do: [ :arg |
 			arg acceptVisitor: self ]	
-			betweenDo: [ stream << ', ' ].
+			separatedBy: [ stream << ', ' ].
 		stream << '>'.
 	 ].
 	
 	stream << '('.
 	aNode arguments do: [ :arg |
 		arg acceptVisitor: self ]	
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 	stream << ')'.
 	
 	aNode declarationOnly 
@@ -730,7 +730,7 @@ PharoCSharpPrintingVisitor >> visitNewExpressionNode: aNode [
 	stream << '('.
 	aNode arguments 
 		do: [ :arg | arg acceptVisitor: self. ]
-		betweenDo: [ stream << ', ' ].
+		separatedBy: [ stream << ', ' ].
 	stream << ')'.
 	aNode initializingValue ifNotNil: [ 
 		stream << ' { '.

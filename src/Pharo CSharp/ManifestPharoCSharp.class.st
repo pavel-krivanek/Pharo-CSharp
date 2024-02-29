@@ -8,10 +8,3 @@ Class {
 	#package : 'Pharo CSharp',
 	#tag : 'Manifest'
 }
-
-{ #category : 'code-critics' }
-ManifestPharoCSharp class >> ruleStringConcatenationRuleV1FalsePositive [
-
-	<ignoreForCoverage>
-	^ #(#(#(#RGPackageDefinition #(#'Documaps CSharp')) #'2024-01-24T17:20:55.563+01:00') )
-]
