@@ -211,7 +211,7 @@ PharoCSharpASTBuildingVisitor class >> detectInstanceAndClassSideCollisions [
 
 	<script>
 	
-	PdmObject withAllSubclasses do: [ :cls | 
+	PharoCSharpObject withAllSubclasses do: [ :cls | 
 		| intersection |
 		intersection := cls instanceSide selectors intersection: cls classSide selectors.
 		intersection ifNotEmpty: [ 
@@ -480,8 +480,8 @@ PharoCSharpASTBuildingVisitor >> canExportClass: aClass [
 		^ (aClass classSide includesSelector: #ignoreInCSharp) not
 	].
 
-	(((aClass inheritsFrom: PdmObject) or: [ aClass inheritsFrom: PdmObject class ]) 
-		or: [ (aClass = PdmObject) or: [ aClass = PdmObject class ] ]) ifFalse: [ ^ false ].
+	(((aClass inheritsFrom: PharoCSharpObject) or: [ aClass inheritsFrom: PharoCSharpObject class ]) 
+		or: [ (aClass = PharoCSharpObject) or: [ aClass = PharoCSharpObject class ] ]) ifFalse: [ ^ false ].
 
 	^ aClass withAllSuperclasses noneSatisfy: [ :each | 
 		each classSide includesSelector: #ignoreInCSharp ]
@@ -1122,25 +1122,25 @@ PharoCSharpASTBuildingVisitor >> isConstructor: aMethod [
 ]
 
 { #category : 'visiting' }
-PharoCSharpASTBuildingVisitor >> isOverride: aMethodNode [ 
+PharoCSharpASTBuildingVisitor >> isOverride: aMethodNode [
 
 	| parentMethod |
-	
-	aMethodNode method methodClass isTrait ifTrue: [ ^ false ].
-	
-	parentMethod := aMethodNode compiledMethod methodClass superclass lookupSelector: aMethodNode compiledMethod selector.
+	aMethodNode compiledMethod methodClass isTrait ifTrue: [ ^ false ].
+
+	parentMethod := aMethodNode compiledMethod methodClass superclass
+		                lookupSelector: aMethodNode compiledMethod selector.
 	parentMethod ifNil: [ ^ false ].
-	
-	^ (self canExportClass: parentMethod methodClass) 
+
+	^ self canExportClass: parentMethod methodClass
 ]
 
 { #category : 'visiting' }
-PharoCSharpASTBuildingVisitor >> isVirtual: aMethodNode [ 
+PharoCSharpASTBuildingVisitor >> isVirtual: aMethodNode [
 
-	aMethodNode method methodClass isClassSide 
-		ifTrue: [ ^ false ].
+	aMethodNode compiledMethod methodClass isClassSide ifTrue: [ ^ false ].
 
-	^ aMethodNode compiledMethod isOverridden and: [ (self isOverride: aMethodNode) not ]
+	^ aMethodNode compiledMethod isOverridden and: [
+		  (self isOverride: aMethodNode) not ]
 ]
 
 { #category : 'utility' }
@@ -2735,77 +2735,77 @@ PharoCSharpASTBuildingVisitor >> visitMethod: aCompiledMethod [
 PharoCSharpASTBuildingVisitor >> visitMethodNode: aMethodNode [
 
 	| selector keywords hasExtraKeywords args extraKeywordsAndArguments visibility |
-
 	selector := self convertSelector: aMethodNode selector.
-	
+
 	selector := self rewriteSelector: selector.
-	
-	visibility :=  'public'.
-	(self isVirtual: aMethodNode) ifTrue: [ 
-		visibility := visibility, ' virtual' ].
+
+	visibility := 'public'.
+	(self isVirtual: aMethodNode) ifTrue: [
+		visibility := visibility , ' virtual' ].
 	(self isOverride: aMethodNode) ifTrue: [
-		visibility := (aMethodNode method methodClass isInstanceSide)
-			ifTrue: [ visibility, ' override' ]
-			ifFalse: [ visibility, ' new'  ]
-		 ].
+		visibility := aMethodNode method methodClass isInstanceSide
+			              ifTrue: [ visibility , ' override' ]
+			              ifFalse: [ visibility , ' new' ] ].
 
-	ast := (PharoCSharpMethodNode from: aMethodNode) 
-		name: selector;
-		static: 	aMethodNode method isClassSide;
-		visibility: visibility;
-		type: (self typeStringOf: methodReturnType).
-		
+	ast := (PharoCSharpMethodNode from: aMethodNode)
+		       name: selector;
+		       static: aMethodNode compiledMethod isClassSide;
+		       visibility: visibility;
+		       type: (self typeStringOf: methodReturnType).
+
 	keywords := self keywordsFor: selector.
-	
+
 	args := aMethodNode arguments.
-	
+
 	hasExtraKeywords := args size > 1.
-	
-	(args first: (1 min: args size)) do: [ :arg | 
-		ast addArgument: ((PharoCSharpArgumentNode from: arg) 
-											name: arg variable name;
-											type: (self typeStringOf:(argumentTypes at: arg variable name ifAbsent: [ #()]));
-											yourself) ].
-	
-	hasExtraKeywords ifTrue: [ 
-		extraKeywordsAndArguments := self extraKeywordsAndArgumentsFrom: aMethodNode.
+
+	(args first: (1 min: args size)) do: [ :arg |
+		ast addArgument: ((PharoCSharpArgumentNode from: arg)
+				 name: arg variable name;
+				 type: (self typeStringOf:
+							  (argumentTypes at: arg variable name ifAbsent: [ #(  ) ]));
+				 yourself) ].
+
+	hasExtraKeywords ifTrue: [
+		extraKeywordsAndArguments := self extraKeywordsAndArgumentsFrom:
+			                             aMethodNode.
 		extraKeywordsAndArguments do: [ :keywordToArg |
-			ast addArgument: ((PharoCSharpArgumentNode new) 
-											name: keywordToArg key;
-											type: (self typeStringOf: (argumentTypes at: keywordToArg value variable name ifAbsent: [ #() ]));
-											addComment: (keywordToArg value name)
-											yourself).
+			ast addArgument: (PharoCSharpArgumentNode new
+					 name: keywordToArg key;
+					 type: (self typeStringOf: (argumentTypes
+									   at: keywordToArg value variable name
+									   ifAbsent: [ #(  ) ]));
+					 addComment: keywordToArg value name yourself).
 			"convert to real argument name, ignore the arguments with the same name"
-			keywordToArg key = keywordToArg value name ifFalse: [ 
+			keywordToArg key = keywordToArg value name ifFalse: [
 				ast addStatement: (PharoCSharpInferredVariableAssignmentNode new
-						name: keywordToArg value name;
-						expression: (PharoCSharpSimpleExpressionNode new content: keywordToArg key)) ].
-		].
-	].
+						 name: keywordToArg value name;
+						 expression:
+							 (PharoCSharpSimpleExpressionNode new content: keywordToArg key)) ] ] ].
 
-	(aMethodNode method hasPragmaNamed: #constructor) 
-		ifTrue: [ 
-			ast addStatement: (PharoCSharpReturnStatementNode new expression: (
-				PharoCSharpNewExpressionNode new 
-					expression: (PharoCSharpSimpleExpressionNode new content: aMethodNode method methodClass instanceSide name);
-					arguments: (self methodArgumentNames: aMethodNode))).
-			^ ast.
-	 	].
+	(aMethodNode compiledMethod hasPragmaNamed: #constructor) ifTrue: [
+		ast addStatement: (PharoCSharpReturnStatementNode new expression:
+				 (PharoCSharpNewExpressionNode new
+					  expression: (PharoCSharpSimpleExpressionNode new content:
+								   aMethodNode method methodClass instanceSide name);
+					  arguments: (self methodArgumentNames: aMethodNode))).
+		^ ast ].
 
-	aMethodNode method isExplicitlyRequired 
-		ifFalse: [ 
-			aMethodNode body
-				ifNotNil: [ :body |
-					ast addStatements: (body acceptVisitor:self).
-					((body statements isEmpty and: [ self methodReturnsVoid not ]) or: [ body statements notEmpty and: [ body statements last isReturn not and: [ aMethodNode method methodClass isInstanceSide and: [ self methodReturnsVoid not ] ] ]])
-						ifTrue: [
-							ast addStatement: (PharoCSharpReturnStatementNode new expression: (PharoCSharpSimpleExpressionNode this))
-					]
-				] ]
-		ifTrue: [ 
-			ast declarationOnly: true 
-		].
-		
+	aMethodNode compiledMethod isExplicitlyRequired
+		ifFalse: [
+			aMethodNode body ifNotNil: [ :body |
+				ast addStatements: (body acceptVisitor: self).
+				((body statements isEmpty and: [ self methodReturnsVoid not ])
+					 or: [
+						 body statements notEmpty and: [
+							 body statements last isReturn not and: [
+								 aMethodNode method methodClass isInstanceSide and: [
+									 self methodReturnsVoid not ] ] ] ]) ifTrue: [
+					ast addStatement:
+						(PharoCSharpReturnStatementNode new expression:
+							 PharoCSharpSimpleExpressionNode this) ] ] ]
+		ifTrue: [ ast declarationOnly: true ].
+
 	^ ast
 ]
 

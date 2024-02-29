@@ -4,9 +4,8 @@ Class {
 	#instVars : [
 		'ivar'
 	],
-	#category : 'Pharo CSharp-Example',
-	#package : 'Pharo CSharp',
-	#tag : 'Example'
+	#category : 'Pharo CSharp',
+	#package : 'Pharo CSharp'
 }
 
 { #category : 'initialization' }
