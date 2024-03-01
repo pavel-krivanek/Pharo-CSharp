@@ -1,40 +1,38 @@
 Class {
-	#name : 'PharoCSharpIfStatementNode',
-	#superclass : 'PharoCSharpStatementNode',
+	#name : #PharoCSharpIfStatementNode,
+	#superclass : #PharoCSharpStatementNode,
 	#instVars : [
 		'booleanExpression',
 		'ifStatements'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpIfStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitIfStatementNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpIfStatementNode >> booleanExpression [
 
 	^ booleanExpression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpIfStatementNode >> booleanExpression: anObject [
 
 	booleanExpression := anObject.
 	booleanExpression parent: self.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpIfStatementNode >> ifStatements [
 
 	^ ifStatements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpIfStatementNode >> ifStatements: anObject [
 
 	ifStatements := anObject.

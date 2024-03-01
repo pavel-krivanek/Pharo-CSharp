@@ -1,23 +1,21 @@
 Class {
-	#name : 'PharoCSharpStatementNode',
-	#superclass : 'PharoCSharpNode',
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#name : #PharoCSharpStatementNode,
+	#superclass : #PharoCSharpNode,
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitStatementNode: self
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpStatementNode >> isExpressionStatement [
 
 	 ^ false
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpStatementNode >> isStatement [ 
 
 	^ true

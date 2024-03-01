@@ -1,6 +1,6 @@
 Class {
-	#name : 'PharoCSharpASTBuildingVisitor',
-	#superclass : 'RBProgramNodeVisitor',
+	#name : #PharoCSharpASTBuildingVisitor,
+	#superclass : #RBProgramNodeVisitor,
 	#instVars : [
 		'ast',
 		'method',
@@ -19,12 +19,10 @@ Class {
 		'collectedSymbols',
 		'exportSymbols'
 	],
-	#category : 'Pharo CSharp-Visitors',
-	#package : 'Pharo CSharp',
-	#tag : 'Visitors'
+	#category : 'Pharo CSharp-Visitors'
 }
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> cSharpKeywords [
 
 	"does not include contextual keywords"
@@ -111,7 +109,7 @@ volatile
 while)
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor class >> canBeConstructor: aMethod [ 
 
 	| body return selector | 
@@ -134,7 +132,7 @@ PharoCSharpASTBuildingVisitor class >> canBeConstructor: aMethod [
 	
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> collectAllErrors [
 
 	<script>
@@ -147,7 +145,7 @@ PharoCSharpASTBuildingVisitor class >> collectAllErrors [
 	ClyQueryBrowserMorph browseMethods: (visitor collectedErrors collect: [ :each | each key ])
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> collectMethodsWithMultiStatementAssignedBlocks [
 
 	<script>
@@ -162,7 +160,7 @@ PharoCSharpASTBuildingVisitor class >> collectMethodsWithMultiStatementAssignedB
 	ClyQueryBrowserMorph browseMethods: remaining
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectBlockTemporaries [
 
 	<script>
@@ -175,7 +173,7 @@ PharoCSharpASTBuildingVisitor class >> detectBlockTemporaries [
 	ClyQueryBrowserMorph browseMethods: collected.
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectDoAsNotStandaloneStatements [
 
 	<script>
@@ -191,7 +189,7 @@ PharoCSharpASTBuildingVisitor class >> detectDoAsNotStandaloneStatements [
 	ClyQueryBrowserMorph browseMethods: collected
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectInsideDoLoops [
 
 	<script>
@@ -206,7 +204,7 @@ PharoCSharpASTBuildingVisitor class >> detectInsideDoLoops [
 	ClyQueryBrowserMorph browseMethods: collected
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectInstanceAndClassSideCollisions [
 
 	<script>
@@ -224,7 +222,7 @@ PharoCSharpASTBuildingVisitor class >> detectInstanceAndClassSideCollisions [
 	]
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectKeywordsCollisions [
 
 	<script>
@@ -250,7 +248,7 @@ PharoCSharpASTBuildingVisitor class >> detectKeywordsCollisions [
 	ClyQueryBrowserMorph browseMethods: collected.
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectKeywordsCollisionsWithSymbols [
 
 	<script>
@@ -272,7 +270,7 @@ PharoCSharpASTBuildingVisitor class >> detectKeywordsCollisionsWithSymbols [
 	ClyQueryBrowserMorph browseMethods: collected.
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectNonlocalReturnsTemporaries [
 
 	<script>
@@ -285,7 +283,7 @@ PharoCSharpASTBuildingVisitor class >> detectNonlocalReturnsTemporaries [
 	ClyQueryBrowserMorph browseMethods: collected.
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectTempNamesReusage [
 
 	<script>
@@ -304,7 +302,7 @@ PharoCSharpASTBuildingVisitor class >> detectTempNamesReusage [
 	ClyQueryBrowserMorph browseMethods: collected.
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectTempNamesReusageInspectFirst [
 
 	<script>
@@ -336,7 +334,7 @@ PharoCSharpASTBuildingVisitor class >> detectTempNamesReusageInspectFirst [
 	ClyQueryBrowserMorph browseMethods: { firstFound }.
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 PharoCSharpASTBuildingVisitor class >> detectUnknownNewTypes [
 
 	<script>
@@ -360,7 +358,7 @@ PharoCSharpASTBuildingVisitor class >> detectUnknownNewTypes [
 
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor class >> isConstructor: aMethod [ 
 
 	(aMethod hasPragmaNamed: #constructor) ifFalse: [ ^ false ].
@@ -368,7 +366,7 @@ PharoCSharpASTBuildingVisitor class >> isConstructor: aMethod [
 	^ self canBeConstructor: aMethod
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> acceptFirstArgumentStatementsOf: aMessageNode [
 
 	| statements result |
@@ -380,7 +378,7 @@ PharoCSharpASTBuildingVisitor >> acceptFirstArgumentStatementsOf: aMessageNode [
 	^ result
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> acceptSecondArgumentStatementsOf: aMessageNode [
 
 	| statements result |
@@ -393,25 +391,25 @@ PharoCSharpASTBuildingVisitor >> acceptSecondArgumentStatementsOf: aMessageNode 
 	^ result
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> addPrefixStatement: aStatement [
 
 	prefixStatements last add: aStatement
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> ast [
 
 	^ ast
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> ast: anObject [
 
 	ast := anObject
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> block: blockNode receiver: receiver do: block [
 
 	"if given block node has no arguments, pass the receiver to `block`, else pass a temporary variable reference created by a prefix statement"
@@ -431,7 +429,7 @@ PharoCSharpASTBuildingVisitor >> block: blockNode receiver: receiver do: block [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> blockNumber: blockNumber returnsValue: aBoolean [
 
 	| allBlocks blockNode type | 
@@ -444,7 +442,7 @@ PharoCSharpASTBuildingVisitor >> blockNumber: blockNumber returnsValue: aBoolean
 	blockInformation at: blockNode put: type.
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> blockReturnTypeOrNilOf: aBlockNode [ 
 
 	| statements definition |
@@ -460,7 +458,7 @@ PharoCSharpASTBuildingVisitor >> blockReturnTypeOrNilOf: aBlockNode [
 	^ SchmidtTypeCollectorType fromLiteral: definition value allButFirst.
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> blockReturnsValue: aBlockNode [ 
 
 	(aBlockNode parent isMessage and: [ RuntimeTypeCollector wellKnownReturningBlockMessages includes: aBlockNode parent originalSelector]) 
@@ -473,7 +471,7 @@ PharoCSharpASTBuildingVisitor >> blockReturnsValue: aBlockNode [
 		wasUsed
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> canExportClass: aClass [ 
 
 	aClass isTrait ifTrue: [ 
@@ -487,7 +485,7 @@ PharoCSharpASTBuildingVisitor >> canExportClass: aClass [
 		each classSide includesSelector: #ignoreInCSharp ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> canExportMethod: aMethod [ 
 
 	aMethod selector = #'_slotTypes' ifTrue: [ ^ false ].
@@ -495,7 +493,7 @@ PharoCSharpASTBuildingVisitor >> canExportMethod: aMethod [
 	^ (aMethod hasPragmaNamed: #ignoreInCSharp) not
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> cascadeFrom: aRBCascadeNode name: name [
 
 	| receiver statements |
@@ -520,7 +518,7 @@ PharoCSharpASTBuildingVisitor >> cascadeFrom: aRBCascadeNode name: name [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> cascadeStatementsFrom: statement [
 
 	| cascadeStatements cascades |
@@ -535,7 +533,7 @@ PharoCSharpASTBuildingVisitor >> cascadeStatementsFrom: statement [
 	^  cascadeStatements
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> checkBothBlocksOf: aMessageNode [ 
 
 	self checkIsBlockWithOneStatement: aMessageNode arguments first.
@@ -543,14 +541,14 @@ PharoCSharpASTBuildingVisitor >> checkBothBlocksOf: aMessageNode [
 
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> checkFirstBlockOf: aMessageNode [ 
 
 	self checkIsBlockWithOneStatement: aMessageNode arguments first.
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> checkIsBlockWithOneStatement: aNode [
 
 	aNode isBlock ifFalse: [ self error: 'The first argument must be a block.' ].
@@ -559,7 +557,7 @@ PharoCSharpASTBuildingVisitor >> checkIsBlockWithOneStatement: aNode [
 
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> checkedArgumentsOfBlock: aBlock [ 
 
 	| arguments |
@@ -568,26 +566,26 @@ PharoCSharpASTBuildingVisitor >> checkedArgumentsOfBlock: aBlock [
 	^ arguments
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> collectErrors [
 
 	^ collectErrors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> collectErrors: anObject [
 
 	collectErrors := anObject.
 	skipWellKnownErrors := anObject not.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> collectedErrors [
 
 	^ collectedErrors
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> collectionMessage: aMessageNode receiver: receiver do: aBlock [
 
  	| name |
@@ -601,7 +599,7 @@ PharoCSharpASTBuildingVisitor >> collectionMessage: aMessageNode receiver: recei
 
 ]
 
-{ #category : 'rewrite statements' }
+{ #category : #'rewrite statements' }
 PharoCSharpASTBuildingVisitor >> containsNonlocalReturns: aMessageNode [
 
 	^ (aMessageNode receiver allChildren anySatisfy: [ :n | n isReturn ]) or: [ 
@@ -610,7 +608,7 @@ PharoCSharpASTBuildingVisitor >> containsNonlocalReturns: aMessageNode [
 
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> convertSelector: aSelector [ 
 
 	| s |
@@ -621,7 +619,7 @@ PharoCSharpASTBuildingVisitor >> convertSelector: aSelector [
 	
 ]
 
-{ #category : 'rewrite statements' }
+{ #category : #'rewrite statements' }
 PharoCSharpASTBuildingVisitor >> convertToStatements: aMessageNode receiver: receiver [ 
 
 	"return nil if the conversion is not possible"
@@ -873,7 +871,7 @@ PharoCSharpASTBuildingVisitor >> convertToStatements: aMessageNode receiver: rec
 	^ nil
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> convertToTernary: aMessageNode receiver: receiver [
 
 	| null |
@@ -1034,14 +1032,14 @@ PharoCSharpASTBuildingVisitor >> convertToTernary: aMessageNode receiver: receiv
 		
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> detectConstructorsOf: aClass [ 
 
 	^ aClass classSide methods select: [ :aMethod | self class isConstructor: aMethod ]
 	
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> exportSymbolsTo: fileNode [
 
 	collectedSymbols ifNotEmpty: [ 
@@ -1052,7 +1050,7 @@ PharoCSharpASTBuildingVisitor >> exportSymbolsTo: fileNode [
 	].
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoCSharpASTBuildingVisitor >> extraKeywordsAndArgumentsFrom: aMethodNode [
 
 	| sel keywords all |
@@ -1068,7 +1066,7 @@ PharoCSharpASTBuildingVisitor >> extraKeywordsAndArgumentsFrom: aMethodNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> findFirstNonInitialUppercaseOf: aString [
     | firstNonUpperIndex |
     firstNonUpperIndex := 1.
@@ -1082,7 +1080,7 @@ PharoCSharpASTBuildingVisitor >> findFirstNonInitialUppercaseOf: aString [
     ^0
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> hasForbiddenNonlocalReturn: aMethod [
 
 	| returns |
@@ -1097,7 +1095,7 @@ PharoCSharpASTBuildingVisitor >> hasForbiddenNonlocalReturn: aMethod [
 		allowed not ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> initialize [ 
 
 	super initialize.
@@ -1110,18 +1108,18 @@ PharoCSharpASTBuildingVisitor >> initialize [
 	exportSymbols := false.
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpASTBuildingVisitor >> isAllowedBinarySelector: aSelector [ 
 
 	^ #(+ - * / , = > < <= >= == // \\ ~= ~~) includes: aSelector
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> isConstructor: aMethod [ 
 	^ self class isConstructor: aMethod 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> isOverride: aMethodNode [
 
 	| parentMethod |
@@ -1134,7 +1132,7 @@ PharoCSharpASTBuildingVisitor >> isOverride: aMethodNode [
 	^ self canExportClass: parentMethod methodClass
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> isVirtual: aMethodNode [
 
 	aMethodNode compiledMethod methodClass isClassSide ifTrue: [ ^ false ].
@@ -1143,7 +1141,7 @@ PharoCSharpASTBuildingVisitor >> isVirtual: aMethodNode [
 		  (self isOverride: aMethodNode) not ]
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> keywordsFor: aSelector [ 
 
 	| newSelector | 
@@ -1157,7 +1155,7 @@ PharoCSharpASTBuildingVisitor >> keywordsFor: aSelector [
 	]
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> keywordsMapping [
 
 	^ Dictionary newFrom: {
@@ -1166,7 +1164,7 @@ PharoCSharpASTBuildingVisitor >> keywordsMapping [
 
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> knownTypeFor: varName [ 
 
 	blockArgumentTypes at: varName ifPresent: [ :type | ^ type ].
@@ -1181,7 +1179,7 @@ PharoCSharpASTBuildingVisitor >> knownTypeFor: varName [
 	
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> messageSendFrom: aMessageNode receiver: receiver [
 
 	(self rewriteMessageSend: aMessageNode receiver: receiver)
@@ -1194,7 +1192,7 @@ PharoCSharpASTBuildingVisitor >> messageSendFrom: aMessageNode receiver: receive
 		arguments: aMessageNode arguments
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> methodArgumentNames: aMethodNode [ 
 
 	"for sending of constructors"
@@ -1218,13 +1216,13 @@ PharoCSharpASTBuildingVisitor >> methodArgumentNames: aMethodNode [
 
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> methodReturnsVoid [ 
 
 	^ methodReturnType size = 1 and: [ methodReturnType anyOne typeClass = Void ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> newCascadeName [
 
 	| indexString | 
@@ -1236,7 +1234,7 @@ PharoCSharpASTBuildingVisitor >> newCascadeName [
 	^ 'cascade', indexString
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> newTemporary [
 
 	| indexString name | 
@@ -1251,26 +1249,26 @@ PharoCSharpASTBuildingVisitor >> newTemporary [
 
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> nodeOrParentMustBeExpression: aNode [ 
 
 	aNode declaresMustBeExpression ifTrue: [ ^ true ].
 	^ aNode allParents anySatisfy: [ :each | each declaresMustBeExpression ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> popPrefixStatements [
 
 	^ prefixStatements removeLast
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> privMessageSend: selector receiver: receiver node: aNode arguments: arguments [
 
 	^ self privMessageSend: selector receiver: receiver node: aNode arguments: arguments cast: nil
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> privMessageSend: selector receiver: receiver node: aNode arguments: arguments cast: cast [
 
 	| keywords msg |
@@ -1297,7 +1295,7 @@ PharoCSharpASTBuildingVisitor >> privMessageSend: selector receiver: receiver no
 	^ msg
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> processBlockStatements: statements to: node originalNode: originalNode [
  
 	| returnStatement lastExpression  |
@@ -1323,7 +1321,7 @@ PharoCSharpASTBuildingVisitor >> processBlockStatements: statements to: node ori
 			 ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> processConstructorsIn: aClass node: classNode [
 	
 	| ownConstructors regionNode usesNew superclassConstructors cascadeStatements |
@@ -1425,7 +1423,7 @@ PharoCSharpASTBuildingVisitor >> processConstructorsIn: aClass node: classNode [
 	
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> processParetnClassSideConstructorsIn: aClass node: classNode [
 	
 	| regionNode superclassConstructors currentMethod |
@@ -1501,7 +1499,7 @@ PharoCSharpASTBuildingVisitor >> processParetnClassSideConstructorsIn: aClass no
 	
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> processProtocolsIn: aClass node: classNode static: aBoolean [
 
 	| protocols ownProtocols |
@@ -1524,7 +1522,7 @@ PharoCSharpASTBuildingVisitor >> processProtocolsIn: aClass node: classNode stat
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> processSelectors: selectors in: aClass node: protocolNode static: aBoolean [
 
 	selectors do: [ :selector |
@@ -1549,7 +1547,7 @@ PharoCSharpASTBuildingVisitor >> processSelectors: selectors in: aClass node: pr
 	]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> processedStatements: statements [
 
 	| resultStatements statementOrExpression |
@@ -1587,13 +1585,13 @@ PharoCSharpASTBuildingVisitor >> processedStatements: statements [
 	^ resultStatements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> pushPrefixStatements [
 
 	prefixStatements add: OrderedCollection new.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> readArgumentTypes [
 
 	argumentTypes := Dictionary new.
@@ -1606,7 +1604,7 @@ PharoCSharpASTBuildingVisitor >> readArgumentTypes [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> readBlockArgTypes [
 
 	blockArgumentTypes := Dictionary new.
@@ -1619,7 +1617,7 @@ PharoCSharpASTBuildingVisitor >> readBlockArgTypes [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> readBlockInformation [
 
 	method pragmas 
@@ -1630,7 +1628,7 @@ PharoCSharpASTBuildingVisitor >> readBlockInformation [
 		].
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> readMethodReturnType [
 
 	method pragmas 
@@ -1653,7 +1651,7 @@ PharoCSharpASTBuildingVisitor >> readMethodReturnType [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> readMethodTypes [
 	
 	self readTempVarTypes.
@@ -1664,7 +1662,7 @@ PharoCSharpASTBuildingVisitor >> readMethodTypes [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> readSlotTypesFrom: aClass [
 
 	| result methodName |
@@ -1685,7 +1683,7 @@ PharoCSharpASTBuildingVisitor >> readSlotTypesFrom: aClass [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> readTempVarTypes [
 
 	tempVarTypes := Dictionary new.
@@ -1698,7 +1696,7 @@ PharoCSharpASTBuildingVisitor >> readTempVarTypes [
 
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> receiverOf: aMessageNode isClass: aClass [ 
 
 	| receiver |
@@ -1708,7 +1706,7 @@ PharoCSharpASTBuildingVisitor >> receiverOf: aMessageNode isClass: aClass [
 	^ receiver variable name asSymbol = aClass name asSymbol
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> receiverTypeIsDictionary: receiverTypeSet [
 
 	receiverTypeSet ifEmpty: [ ^ false ].
@@ -1716,7 +1714,7 @@ PharoCSharpASTBuildingVisitor >> receiverTypeIsDictionary: receiverTypeSet [
 	^ receiverTypeSet anyOne isDictionaryType
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> receiverTypeOf: aMessageSendNode satisfies: aBlock [ 
 
 	| receiver knownType |
@@ -1727,14 +1725,14 @@ PharoCSharpASTBuildingVisitor >> receiverTypeOf: aMessageSendNode satisfies: aBl
 	^ aBlock value: knownType anyOne
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> resetPrefixStatements [
 
 	prefixStatements := OrderedCollection new.
 
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteAtIfMessageSend: aMessageNode receiver: receiver [
 
 	"aMessageNode selector = #at:ifPresent: 
@@ -1758,7 +1756,7 @@ PharoCSharpASTBuildingVisitor >> rewriteAtIfMessageSend: aMessageNode receiver: 
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteBasicMessageSend: aMessageNode receiver: receiver [
 
 	(aMessageNode selector = #new and: [ receiver isSimpleExpression ])
@@ -1850,7 +1848,7 @@ PharoCSharpASTBuildingVisitor >> rewriteBasicMessageSend: aMessageNode receiver:
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteBinaryMessageSend: aMessageNode receiver: receiver [
 
 	aMessageNode selector = #<< 
@@ -1882,7 +1880,7 @@ PharoCSharpASTBuildingVisitor >> rewriteBinaryMessageSend: aMessageNode receiver
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteBlockMessageSend: aMessageNode receiver: receiver [
 
 	(aMessageNode selector = #value and: [ receiver isSimpleExpression ])
@@ -1903,7 +1901,7 @@ PharoCSharpASTBuildingVisitor >> rewriteBlockMessageSend: aMessageNode receiver:
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteCastMessageSend: aMessageNode receiver: receiver [
 															
 	aMessageNode selector = #castAs: 
@@ -1937,7 +1935,7 @@ PharoCSharpASTBuildingVisitor >> rewriteCastMessageSend: aMessageNode receiver: 
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteCharacterMessageSend: aMessageNode receiver: receiver [
 
 	(aMessageNode selector = #value: and: [ self receiverOf: aMessageNode isClass: Character ])
@@ -1952,7 +1950,7 @@ PharoCSharpASTBuildingVisitor >> rewriteCharacterMessageSend: aMessageNode recei
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteCollectionMessageSend: aMessageNode receiver: receiver [
 
 
@@ -2054,7 +2052,7 @@ PharoCSharpASTBuildingVisitor >> rewriteCollectionMessageSend: aMessageNode rece
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteCustomMessageSend: aMessageNode receiver: receiver [
 		
 	aMessageNode selector = #applyOffset:
@@ -2159,7 +2157,7 @@ PharoCSharpASTBuildingVisitor >> rewriteCustomMessageSend: aMessageNode receiver
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteExceptionMessageSend: aMessageNode receiver: receiver [
 
 	(aMessageNode selector = #messageText)
@@ -2176,7 +2174,7 @@ PharoCSharpASTBuildingVisitor >> rewriteExceptionMessageSend: aMessageNode recei
 	^ nil
 ]
 
-{ #category : 'rewrite globals' }
+{ #category : #'rewrite globals' }
 PharoCSharpASTBuildingVisitor >> rewriteGlobalName: aString [ 
 
 	aString = 'Void' ifTrue: [ ^ 'void' ].
@@ -2190,7 +2188,7 @@ PharoCSharpASTBuildingVisitor >> rewriteGlobalName: aString [
 	^ aString
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteLogicalMessageSend: aMessageNode receiver: receiver [
 
 	aMessageNode selector = #and: 
@@ -2223,7 +2221,7 @@ PharoCSharpASTBuildingVisitor >> rewriteLogicalMessageSend: aMessageNode receive
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteMessageSend: aMessageNode receiver: receiver [
 
 	(self rewriteBasicMessageSend: aMessageNode receiver: receiver)
@@ -2256,7 +2254,7 @@ PharoCSharpASTBuildingVisitor >> rewriteMessageSend: aMessageNode receiver: rece
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteNumberMessageSend: aMessageNode receiver: receiver [
 
 	aMessageNode selector = #to:do:
@@ -2280,7 +2278,7 @@ PharoCSharpASTBuildingVisitor >> rewriteNumberMessageSend: aMessageNode receiver
 	^ nil
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteObjectMessageSend: aMessageNode receiver: receiver [
 		
 	(#(asString fullPrintString) includes: aMessageNode selector)
@@ -2340,7 +2338,7 @@ PharoCSharpASTBuildingVisitor >> rewriteObjectMessageSend: aMessageNode receiver
 	^ nil
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> rewriteSelector: selector [ 
 
 	selector = #= ifTrue: [ 
@@ -2348,7 +2346,7 @@ PharoCSharpASTBuildingVisitor >> rewriteSelector: selector [
 	^ selector
 ]
 
-{ #category : 'rewrite messages' }
+{ #category : #'rewrite messages' }
 PharoCSharpASTBuildingVisitor >> rewriteStringMessageSend: aMessageNode receiver: receiver [		
 				
 	aMessageNode selector = #streamContents: 
@@ -2374,19 +2372,19 @@ PharoCSharpASTBuildingVisitor >> rewriteStringMessageSend: aMessageNode receiver
 	^ nil
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> skipWellKnownErrors [
 
 	^ skipWellKnownErrors
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpASTBuildingVisitor >> skipWellKnownErrors: anObject [
 
 	skipWellKnownErrors := anObject
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> sortedClassesAndTraits: classesAndTraits [ 
 
 	| result |
@@ -2402,13 +2400,13 @@ PharoCSharpASTBuildingVisitor >> sortedClassesAndTraits: classesAndTraits [
 	^ result.
 ]
 
-{ #category : 'rewrite statements' }
+{ #category : #'rewrite statements' }
 PharoCSharpASTBuildingVisitor >> statementSelectors [
 	
 	^ #(ifTrue: ifFalse: ifTrue:ifFalse: ifFalse:ifTrue: ifNil: ifNotNil: ifNotNil:ifNil: ifNil:ifNotNil: on:do: ifEmpty: ifNotEmpty: ifEmpty:ifNotEmpty: ifNotEmpty:ifEmpty: ifError: do: withIndexDo: doWithIndex: whileTrue: keysAndValuesDo: at:ifPresent: ).
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> superclassNamesFor: aClassOrTrait [ 
 
 	aClassOrTrait isTrait ifTrue: [ ^ #() ].
@@ -2416,19 +2414,19 @@ PharoCSharpASTBuildingVisitor >> superclassNamesFor: aClassOrTrait [
 	^ { aClassOrTrait superclass name }
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> typeOfArrayTemp: tempName [ 
 
 	^ tempVarTypes at: tempName ifAbsent: [ #() ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> typeOfTemp: tempName [ 
 
 	^ tempVarTypes at: tempName ifAbsent: [ #() ]
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> typeSetWith: typeOrTypes [
 
 	| set |
@@ -2443,7 +2441,7 @@ PharoCSharpASTBuildingVisitor >> typeSetWith: typeOrTypes [
 		
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> typeStringOf: aTypeSet [ 
 
 	| merged |
@@ -2456,33 +2454,33 @@ PharoCSharpASTBuildingVisitor >> typeStringOf: aTypeSet [
 		visitTypeSet: merged
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> unknownTypeName [ 
 
 	^ 'unknown'
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> validateConstructor: aMethod [ 
 
 	self assert: (self class isConstructor: aMethod)
 	
 ]
 
-{ #category : 'utility' }
+{ #category : #utility }
 PharoCSharpASTBuildingVisitor >> varialbe: varName isPropertyOf: aClass [ 
 
 	^ (aClass respondsTo: #cSharpProperties) and: [ aClass cSharpProperties includes: varName ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitArgumentVariableNode: aNode [
 
 	^ (PharoCSharpSimpleExpressionNode from: aNode) 
 		content: aNode name
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitArrayNode: anArrayNode [
 
 	| name type |
@@ -2504,7 +2502,7 @@ PharoCSharpASTBuildingVisitor >> visitArrayNode: anArrayNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitAssignmentNode: anAssignmentNode [
 
 	anAssignmentNode value mustBeExpression.
@@ -2516,7 +2514,7 @@ PharoCSharpASTBuildingVisitor >> visitAssignmentNode: anAssignmentNode [
 			)
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitBlockNode: aBlockNode [
 
 	| node singleExpressionBlock returnType bodySize | 
@@ -2563,7 +2561,7 @@ PharoCSharpASTBuildingVisitor >> visitBlockNode: aBlockNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitCascadeNode: aRBCascadeNode [
 
 	| name |
@@ -2581,7 +2579,7 @@ PharoCSharpASTBuildingVisitor >> visitCascadeNode: aRBCascadeNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitClass: aClass [
 
 	| classNode |
@@ -2613,21 +2611,21 @@ PharoCSharpASTBuildingVisitor >> visitClass: aClass [
 	^ classNode
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitGlobalVariableNode: aNode [
 
 	^ (PharoCSharpSimpleExpressionNode from: aNode) 
 		content: (self rewriteGlobalName: aNode name)
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitInstanceVariableNode: aNode [
 
 	^ (PharoCSharpSimpleExpressionNode from: aNode)
 		content: aNode name
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitLiteralArrayNode: anArrayNode [
 
 	| name type |
@@ -2652,7 +2650,7 @@ PharoCSharpASTBuildingVisitor >> visitLiteralArrayNode: anArrayNode [
 		content: name
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitLiteralNode: aLiteralNode [
 
 	aLiteralNode value isSymbol ifTrue: [ collectedSymbols add: (aLiteralNode value copyReplaceAll: ':' with: '_') asSymbol ].
@@ -2661,7 +2659,7 @@ PharoCSharpASTBuildingVisitor >> visitLiteralNode: aLiteralNode [
 		content: aLiteralNode value asCSharpLiteral
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitMessageNode: aMessageNode [
 
 	| receiver |
@@ -2713,7 +2711,7 @@ PharoCSharpASTBuildingVisitor >> visitMessageNode: aMessageNode [
 	
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitMethod: aCompiledMethod [ 
 
 	method := aCompiledMethod.
@@ -2731,7 +2729,7 @@ PharoCSharpASTBuildingVisitor >> visitMethod: aCompiledMethod [
 	^ self visitMethodNode: ast.
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitMethodNode: aMethodNode [
 
 	| selector keywords hasExtraKeywords args extraKeywordsAndArguments visibility |
@@ -2809,13 +2807,13 @@ PharoCSharpASTBuildingVisitor >> visitMethodNode: aMethodNode [
 	^ ast
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitPackage: aPackage [
 
 	^ self visitPackage: aPackage headDefinitions: nil
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitPackage: aPackage headDefinitions: headDefinitions [
 
 	| fileNode sorted |
@@ -2839,7 +2837,7 @@ PharoCSharpASTBuildingVisitor >> visitPackage: aPackage headDefinitions: headDef
 	^ fileNode
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitReturnNode: aReturnNode [
 
 	aReturnNode value mustBeExpression.
@@ -2849,14 +2847,14 @@ PharoCSharpASTBuildingVisitor >> visitReturnNode: aReturnNode [
 		static: (method methodClass isClassSide or: [ self methodReturnsVoid])
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitSelfNode: aNode [
 
 	^ (PharoCSharpSimpleExpressionNode from: aNode) 
 		content: #this
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitSequenceNode: aSequenceNode [
 
 	^(aSequenceNode temporaries collect: [ :each |
@@ -2867,14 +2865,14 @@ PharoCSharpASTBuildingVisitor >> visitSequenceNode: aSequenceNode [
 	, (self processedStatements: aSequenceNode statements).
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitSuperNode: aNode [
 
 	^ (PharoCSharpSimpleExpressionNode from: aNode) 
 		content: #base
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpASTBuildingVisitor >> visitTemporaryVariableNode: aNode [
 
 	^ (PharoCSharpSimpleExpressionNode from: aNode) 

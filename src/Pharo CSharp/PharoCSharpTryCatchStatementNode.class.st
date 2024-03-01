@@ -1,66 +1,64 @@
 Class {
-	#name : 'PharoCSharpTryCatchStatementNode',
-	#superclass : 'PharoCSharpStatementNode',
+	#name : #PharoCSharpTryCatchStatementNode,
+	#superclass : #PharoCSharpStatementNode,
 	#instVars : [
 		'tryStatements',
 		'catchStatements',
 		'exceptionType',
 		'exceptionName'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitTryCatchStatementNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> catchStatements [
 
 	^ catchStatements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> catchStatements: anObject [
 
 	catchStatements := anObject.
 	catchStatements do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> exceptionName [
 
 	^ exceptionName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> exceptionName: anObject [
 
 	exceptionName := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> exceptionType [
 
 	^ exceptionType
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> exceptionType: anObject [
 
 	exceptionType := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> tryStatements [
 
 	^ tryStatements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpTryCatchStatementNode >> tryStatements: anObject [
 
 	tryStatements := anObject.

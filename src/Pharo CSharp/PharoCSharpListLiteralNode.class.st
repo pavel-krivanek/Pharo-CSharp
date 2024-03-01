@@ -1,26 +1,24 @@
 Class {
-	#name : 'PharoCSharpListLiteralNode',
-	#superclass : 'PharoCSharpExpressionNode',
+	#name : #PharoCSharpListLiteralNode,
+	#superclass : #PharoCSharpExpressionNode,
 	#instVars : [
 		'content'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpListLiteralNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitListLiteralNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpListLiteralNode >> content [
 
 	^ content
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpListLiteralNode >> content: anObject [
 
 	content := anObject

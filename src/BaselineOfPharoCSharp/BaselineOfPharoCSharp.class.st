@@ -1,11 +1,10 @@
 Class {
-	#name : 'BaselineOfPharoCSharp',
-	#superclass : 'BaselineOf',
-	#category : 'BaselineOfPharoCSharp',
-	#package : 'BaselineOfPharoCSharp'
+	#name : #BaselineOfPharoCSharp,
+	#superclass : #BaselineOf,
+	#category : #BaselineOfPharoCSharp
 }
 
-{ #category : 'baselines' }
+{ #category : #baselines }
 BaselineOfPharoCSharp >> baseline: spec [ 
 	<baseline>
 	spec for: #common
@@ -16,5 +15,6 @@ BaselineOfPharoCSharp >> baseline: spec [
 						
 			spec package: 'Pharo CSharp'.
 			spec package: 'Pharo CSharp-Tests'.
+			spec package: 'Pharo CSharp-Example'.
 	]
 ]

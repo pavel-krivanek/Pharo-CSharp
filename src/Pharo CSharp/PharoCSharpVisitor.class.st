@@ -1,37 +1,35 @@
 Class {
-	#name : 'PharoCSharpVisitor',
-	#superclass : 'Object',
-	#category : 'Pharo CSharp-Visitors',
-	#package : 'Pharo CSharp',
-	#tag : 'Visitors'
+	#name : #PharoCSharpVisitor,
+	#superclass : #Object,
+	#category : 'Pharo CSharp-Visitors'
 }
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitArgumentNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitArrayNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitAssociationNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitBinaryExpressionNode: aNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitCastAsNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitCastDirectNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitClassNode: aNode [
 
 	aNode variables do: [ :each | 
@@ -44,95 +42,95 @@ PharoCSharpVisitor >> visitClassNode: aNode [
 		each acceptVisitor: self ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitConstructorNode: aNode [
 
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitCopyExpressionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitEmptyNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitEnumNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitExpressionStatementNode: aNode [
 
 	aNode expression acceptVisitor: self
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitFileNode: aNode [
 
 	aNode children do: [ :each | 
 		each acceptVisitor: self ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitForEachKVPStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitForEachStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitForWithObjectStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitIfElseStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitIfElseWithVariableStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitIfStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitIfWithVariableStatementNode: aNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitInferredVariableAssignmentNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitInstanceVariableDefinitionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitInvocationNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitIsNode: aNode [
 
 	
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitLambdaNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitListLiteralNode: aNode [
 
 	aNode expression acceptVisitor: self
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitMessageSendArgumentNode: aNode [
 
 	aNode expression acceptVisitor: self
@@ -140,87 +138,87 @@ PharoCSharpVisitor >> visitMessageSendArgumentNode: aNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitMessageSendNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitMethodNode: aNode [
 
 	aNode statements do: [ :each | 
 		each acceptVisitor: self ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitNamespaceNode: aNode [
 
 	aNode children do: [ :each | 
 		each acceptVisitor: self ]
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitNewExpressionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitNullCoalescingExpressionNode: aNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitPlainCodeNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitRegionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitReturnStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitSimpleExpressionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitTernaryExpressionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitTryCatchStatementNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitTupleNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitTypeNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitTypeOfNode: aNode [
 
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitUnaryExpressionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitVariableDeclarationNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitVariableDefinitionNode: aNode [
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpVisitor >> visitWhileStatementNode: aNode [
 
 	

@@ -1,6 +1,6 @@
 Class {
-	#name : 'PharoCSharpAtIfPresentIfAbsentStatementNode',
-	#superclass : 'PharoCSharpStatementNode',
+	#name : #PharoCSharpAtIfPresentIfAbsentStatementNode,
+	#superclass : #PharoCSharpStatementNode,
 	#instVars : [
 		'receiverExpression',
 		'atExpression',
@@ -9,83 +9,81 @@ Class {
 		'ifPresentArgType',
 		'ifAbsentStatements'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitAtIfPresentIfAbsentStatementNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> atExpression [
 
 	^ atExpression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> atExpression: anObject [
 
 	atExpression := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifAbsentStatements [
 
 	^ ifAbsentStatements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifAbsentStatements: anObject [
 
 	ifAbsentStatements := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifPresentArgName [
 
 	^ ifPresentArgName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifPresentArgName: anObject [
 
 	ifPresentArgName := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifPresentArgType [
 
 	^ ifPresentArgType
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifPresentArgType: anObject [
 
 	ifPresentArgType := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifPresentStatements [
 
 	^ ifPresentStatements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> ifPresentStatements: anObject [
 
 	ifPresentStatements := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> receiverExpression [
 
 	^ receiverExpression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpAtIfPresentIfAbsentStatementNode >> receiverExpression: anObject [
 
 	receiverExpression := anObject

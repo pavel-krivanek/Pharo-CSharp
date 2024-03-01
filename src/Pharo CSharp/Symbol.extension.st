@@ -1,6 +1,6 @@
-Extension { #name : 'Symbol' }
+Extension { #name : #Symbol }
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 Symbol >> asCSharpLiteral [
 	
 	^ super asCSharpLiteral 

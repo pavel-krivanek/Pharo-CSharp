@@ -1,18 +1,19 @@
+"
+An abstract superclass for C# expression nodes.
+"
 Class {
-	#name : 'PharoCSharpExpressionNode',
-	#superclass : 'PharoCSharpNode',
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#name : #PharoCSharpExpressionNode,
+	#superclass : #PharoCSharpNode,
+	#category : #'Pharo CSharp-AST'
 }
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpExpressionNode >> isExpression [ 
 
 	^ true
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpExpressionNode >> requiresParenthesesIfInsideExpression [
 
 	^ false

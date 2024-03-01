@@ -1,33 +1,31 @@
 Class {
-	#name : 'PharoCSharpExpressionStatementNode',
-	#superclass : 'PharoCSharpStatementNode',
+	#name : #PharoCSharpExpressionStatementNode,
+	#superclass : #PharoCSharpStatementNode,
 	#instVars : [
 		'expression'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpExpressionStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitExpressionStatementNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpExpressionStatementNode >> expression [
 
 	^ expression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpExpressionStatementNode >> expression: anObject [
 
 	expression := anObject.
 	expression parent: self.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpExpressionStatementNode >> isExpressionStatement [
 
 	 ^ true

@@ -1,17 +1,16 @@
 Class {
-	#name : 'PharoCSharpObject',
-	#superclass : 'Object',
-	#category : 'Pharo CSharp',
-	#package : 'Pharo CSharp'
+	#name : #PharoCSharpObject,
+	#superclass : #Object,
+	#category : 'Pharo CSharp'
 }
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpObject class >> isCSharpClass [ 
 
 	^ true
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 PharoCSharpObject >> initialize [ 
 	
 	"this method is here to mark #intialize methods in subclasses as override"

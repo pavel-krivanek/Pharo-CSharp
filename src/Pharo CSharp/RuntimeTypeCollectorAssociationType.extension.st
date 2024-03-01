@@ -1,6 +1,6 @@
-Extension { #name : 'RuntimeTypeCollectorAssociationType' }
+Extension { #name : #RuntimeTypeCollectorAssociationType }
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RuntimeTypeCollectorAssociationType >> mappedUsing: aBuildingVisitor [
 
 	^ 'Association<{1}, {2}>{3}' format: { 
@@ -10,7 +10,7 @@ RuntimeTypeCollectorAssociationType >> mappedUsing: aBuildingVisitor [
 	}.
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RuntimeTypeCollectorAssociationType >> mergeWith: collectorType [
 
 	| premergedToCommonSuperclass|

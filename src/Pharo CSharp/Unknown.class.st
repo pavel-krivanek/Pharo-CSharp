@@ -1,7 +1,5 @@
 Class {
-	#name : 'Unknown',
-	#superclass : 'Object',
-	#category : 'Pharo CSharp-Support',
-	#package : 'Pharo CSharp',
-	#tag : 'Support'
+	#name : #Unknown,
+	#superclass : #Object,
+	#category : #'Pharo CSharp-Class placeholders'
 }

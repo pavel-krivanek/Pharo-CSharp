@@ -1,79 +1,77 @@
 Class {
-	#name : 'PharoCSharpNewExpressionNode',
-	#superclass : 'PharoCSharpExpressionNode',
+	#name : #PharoCSharpNewExpressionNode,
+	#superclass : #PharoCSharpExpressionNode,
 	#instVars : [
 		'expression',
 		'type',
 		'arguments',
 		'initializingValue'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitNewExpressionNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> arguments [
 
 	^ arguments
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> arguments: anObject [
 
 	arguments := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> expression [
 
 	^ expression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> expression: anObject [
 
 	expression := anObject.
 	expression parent: self.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> initialize [ 
 
 	super initialize.
 	arguments := OrderedCollection new.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> initializingValue [
 
 	^ initializingValue
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> initializingValue: anObject [
 
 	initializingValue := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> size: anObject [
 
 	arguments := { anObject }
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> type [
 
 	^ type
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNewExpressionNode >> type: anObject [
 
 	type := anObject

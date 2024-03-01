@@ -1,6 +1,6 @@
-Extension { #name : 'RuntimeTypeCollectorDictionaryType' }
+Extension { #name : #RuntimeTypeCollectorDictionaryType }
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RuntimeTypeCollectorDictionaryType >> mappedUsing: aBuildingVisitor [
 
 	^ 'Dictionary<{1}, {2}>{3}' format: { 
@@ -10,7 +10,7 @@ RuntimeTypeCollectorDictionaryType >> mappedUsing: aBuildingVisitor [
 	}.
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RuntimeTypeCollectorDictionaryType >> mergeWith: collectorType [
 
 	| premergedToCommonSuperclass|

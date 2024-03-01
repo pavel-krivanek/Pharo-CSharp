@@ -1,12 +1,13 @@
+"
+Subclass me to to create a C# code generator for your custom project
+"
 Class {
-	#name : 'PharoCSharpGenerator',
-	#superclass : 'Object',
-	#category : 'Pharo CSharp-Support',
-	#package : 'Pharo CSharp',
-	#tag : 'Support'
+	#name : #PharoCSharpGenerator,
+	#superclass : #Object,
+	#category : #'Pharo CSharp-Support'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> annotateAccessorsInClass [ 
 
 	<script>
@@ -17,7 +18,7 @@ PharoCSharpGenerator class >> annotateAccessorsInClass [
 	self annotateWritersInClass: cls.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> annotateReadersInClass: cls [
 
 	<script>
@@ -43,7 +44,7 @@ PharoCSharpGenerator class >> annotateReadersInClass: cls [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> annotateWritersInClass: cls [
 
 	| statements typeName pragmaManager |
@@ -72,7 +73,7 @@ PharoCSharpGenerator class >> annotateWritersInClass: cls [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> detectClassSideOverrides [
 
 	<script>
@@ -84,7 +85,7 @@ PharoCSharpGenerator class >> detectClassSideOverrides [
 	ClyQueryBrowserMorph browseMethods: methods
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> generate [ 
 
 	<script>
@@ -101,7 +102,7 @@ PharoCSharpGenerator class >> generate [
 								
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> generatePackage: packageName head: head [
 	| visitor ast printer |
 	visitor := PharoCSharpASTBuildingVisitor new.
@@ -114,7 +115,7 @@ PharoCSharpGenerator class >> generatePackage: packageName head: head [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> generatePackage: packageName head: head file: aFileReference [ 
 
 	| content |
@@ -124,7 +125,7 @@ PharoCSharpGenerator class >> generatePackage: packageName head: head file: aFil
 		stream nextPutAll: content ].
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> headDocumapsDirectSystem [
 
 	^'
@@ -136,7 +137,7 @@ namespace PharoCSharpExample;
 '
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoCSharpGenerator class >> openTranlator [ 
 
 	<script>

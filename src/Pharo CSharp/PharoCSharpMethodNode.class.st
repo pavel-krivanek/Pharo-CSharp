@@ -1,6 +1,6 @@
 Class {
-	#name : 'PharoCSharpMethodNode',
-	#superclass : 'PharoCSharpNode',
+	#name : #PharoCSharpMethodNode,
+	#superclass : #PharoCSharpNode,
 	#instVars : [
 		'static',
 		'visibility',
@@ -11,75 +11,73 @@ Class {
 		'declarationOnly',
 		'genericArguments'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitMethodNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> addArgument: aNode [ 
 
 	aNode parent: self.
 	^ arguments add: aNode
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> addStatement: aNode [ 
 
 	aNode parent: self.
 	^ statements add: aNode
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> addStatements: nodes [ 
 
 	nodes do: [ :each | each parent: self ].
 	^ statements addAll: nodes
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> arguments [
 
 	^ arguments
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> arguments: anObject [
 
 	arguments := anObject.
 	arguments do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> declarationOnly [
 
 	^ declarationOnly
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> declarationOnly: anObject [
 
 	declarationOnly := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> genericArguments [
 
 	^ genericArguments
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> genericArguments: anObject [
 
 	genericArguments := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> initialize [ 
 
 	super initialize.
@@ -94,62 +92,62 @@ PharoCSharpMethodNode >> initialize [
 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> statements [
 
 	^ statements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> statements: anObject [
 
 	statements := anObject.
 	statements do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> static [
 
 	^ static
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> static: anObject [
 
 	static := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> type [
 
 	^ type
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> type: anObject [
 
 	type := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> visibility [
 
 	^ visibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMethodNode >> visibility: anObject [
 
 	visibility := anObject

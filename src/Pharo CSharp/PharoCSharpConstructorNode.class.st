@@ -1,39 +1,37 @@
 Class {
-	#name : 'PharoCSharpConstructorNode',
-	#superclass : 'PharoCSharpMethodNode',
+	#name : #PharoCSharpConstructorNode,
+	#superclass : #PharoCSharpMethodNode,
 	#instVars : [
 		'callsBase'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpConstructorNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitConstructorNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpConstructorNode >> callsBase [
 
 	^ callsBase
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpConstructorNode >> callsBase: anObject [
 
 	callsBase := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpConstructorNode >> initialize [ 
 
 	super initialize.
 	callsBase := false.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpConstructorNode >> intialize [ 
 
 	super initialize.

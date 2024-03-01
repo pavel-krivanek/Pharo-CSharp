@@ -1,59 +1,60 @@
+"
+A node for C# enumerations
+"
 Class {
-	#name : 'PharoCSharpEnumNode',
-	#superclass : 'PharoCSharpNode',
+	#name : #PharoCSharpEnumNode,
+	#superclass : #PharoCSharpNode,
 	#instVars : [
 		'visibility',
 		'name',
 		'values'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : #'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitEnumNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> initialize [ 
 
 	super initialize.
 	visibility := 'public '
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> values [
 
 	^ values
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> values: anObject [
 
 	values := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> visibility [
 
 	^ visibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpEnumNode >> visibility: anObject [
 
 	visibility := anObject

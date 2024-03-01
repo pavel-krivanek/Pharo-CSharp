@@ -1,39 +1,37 @@
 Class {
-	#name : 'PharoCSharpForWithObjectStatementNode',
-	#superclass : 'PharoCSharpForeachStatementNode',
+	#name : #PharoCSharpForWithObjectStatementNode,
+	#superclass : #PharoCSharpForeachStatementNode,
 	#instVars : [
 		'indexType',
 		'indexName'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForWithObjectStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitForWithObjectStatementNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForWithObjectStatementNode >> indexName [
 
 	^ indexName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForWithObjectStatementNode >> indexName: anObject [
 
 	indexName := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForWithObjectStatementNode >> indexType [
 
 	^ indexType
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForWithObjectStatementNode >> indexType: anObject [
 
 	indexType := anObject

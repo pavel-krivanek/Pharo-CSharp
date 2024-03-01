@@ -1,12 +1,12 @@
-Extension { #name : 'String' }
+Extension { #name : #String }
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 String >> asCSharpLiteral [
 
 	^ '"', (self copyReplaceAll: '"' with: '\"'),  '"'
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 String >> asCSharpLiteralIn: aVisitor [ 
 
 	^ PharoCSharpSimpleExpressionNode new content: self asCSharpLiteral

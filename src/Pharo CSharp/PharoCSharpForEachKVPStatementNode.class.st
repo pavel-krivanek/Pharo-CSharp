@@ -1,6 +1,6 @@
 Class {
-	#name : 'PharoCSharpForEachKVPStatementNode',
-	#superclass : 'PharoCSharpStatementNode',
+	#name : #PharoCSharpForEachKVPStatementNode,
+	#superclass : #PharoCSharpStatementNode,
 	#instVars : [
 		'type',
 		'name',
@@ -9,83 +9,81 @@ Class {
 		'collectionExpression',
 		'statements'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitForEachKVPStatementNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> collectionExpression [
 
 	^ collectionExpression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> collectionExpression: anObject [
 
 	collectionExpression := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> keyName [
 
 	^ keyName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> keyName: anObject [
 
 	keyName := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> keyType [
 
 	^ keyType
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> keyType: anObject [
 
 	keyType := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> statements [
 
 	^ statements
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> statements: anObject [
 
 	statements := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> type [
 
 	^ type
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpForEachKVPStatementNode >> type: anObject [
 
 	type := anObject

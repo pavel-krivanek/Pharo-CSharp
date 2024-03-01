@@ -1,6 +1,9 @@
+"
+C# class definition node
+"
 Class {
-	#name : 'PharoCSharpClassNode',
-	#superclass : 'PharoCSharpNode',
+	#name : #PharoCSharpClassNode,
+	#superclass : #PharoCSharpNode,
 	#instVars : [
 		'name',
 		'visibility',
@@ -11,50 +14,48 @@ Class {
 		'genericTypes',
 		'isInterface'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : #'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitClassNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> addGenericType: typeName [ 
 	
 	^ genericTypes add: typeName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> addRegion: aRegion [ 
 
 	aRegion parent: self.
 	^ regions add: aRegion
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> addStaticRegion: aRegion [ 
 
 	aRegion parent: self.
 	^ staticRegions add: aRegion
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> addSupertype: typeName [ 
 	
 	^ supertypes add: typeName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> addVariable: aMethod [ 
 
 	aMethod parent: self.
 	^ variables add: aMethod
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> from: aClass [ 
 
 	comments := { aClass comment }.
@@ -63,31 +64,31 @@ PharoCSharpClassNode >> from: aClass [
 	
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> genericTypes [
 
 	^ genericTypes
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> genericTypes: anObject [
 
 	genericTypes := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> hasGenericTypes [
 
 	^ genericTypes notEmpty
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> hasSupertypes [ 
 
 	^ supertypes notEmpty
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> initialize [ 
 
 	super initialize.
@@ -101,88 +102,88 @@ PharoCSharpClassNode >> initialize [
 	isInterface := false.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> isInterface [
 
 	^ isInterface
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> isInterface: anObject [
 
 	isInterface := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> regions [
 
 	^ regions
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> regions: anObject [
 
 	regions := anObject.
 	regions do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> staticRegions [
 
 	^ staticRegions
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> staticRegions: anObject [
 
 	staticRegions := anObject.
 	staticRegions do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> supertypes [ 
 
 	^ supertypes
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> supertypes: anObject [
 
 	supertypes := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> variables [
 
 	^ variables
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> variables: anObject [
 
 	variables := anObject.
 	variables do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> visibility [
 
 	^ visibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpClassNode >> visibility: anObject [
 
 	visibility := anObject

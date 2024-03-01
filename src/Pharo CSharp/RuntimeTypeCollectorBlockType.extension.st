@@ -1,6 +1,6 @@
-Extension { #name : 'RuntimeTypeCollectorBlockType' }
+Extension { #name : #RuntimeTypeCollectorBlockType }
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RuntimeTypeCollectorBlockType >> mergeWith: collectorType [
 
 	| premergedToCommonSuperclass mergedArguments |

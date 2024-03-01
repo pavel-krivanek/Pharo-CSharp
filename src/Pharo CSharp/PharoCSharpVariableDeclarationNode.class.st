@@ -1,39 +1,37 @@
 Class {
-	#name : 'PharoCSharpVariableDeclarationNode',
-	#superclass : 'PharoCSharpStatementNode',
+	#name : #PharoCSharpVariableDeclarationNode,
+	#superclass : #PharoCSharpStatementNode,
 	#instVars : [
 		'type',
 		'name'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpVariableDeclarationNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitVariableDeclarationNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpVariableDeclarationNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpVariableDeclarationNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpVariableDeclarationNode >> type [
 
 	^ type
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpVariableDeclarationNode >> type: anObject [
 
 	type := anObject

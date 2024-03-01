@@ -1,7 +1,5 @@
 Class {
-	#name : 'IEnumerable',
-	#superclass : 'OrderedCollection',
-	#category : 'Pharo CSharp-Support',
-	#package : 'Pharo CSharp',
-	#tag : 'Support'
+	#name : #IEnumerable,
+	#superclass : #OrderedCollection,
+	#category : #'Pharo CSharp-Class placeholders'
 }

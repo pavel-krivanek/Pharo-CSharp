@@ -1,6 +1,6 @@
 Class {
-	#name : 'PharoCSharpMessageSendNode',
-	#superclass : 'PharoCSharpExpressionNode',
+	#name : #PharoCSharpMessageSendNode,
+	#superclass : #PharoCSharpExpressionNode,
 	#instVars : [
 		'receiver',
 		'name',
@@ -8,61 +8,59 @@ Class {
 		'cast',
 		'genericTypeArgument'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpMessageSendNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitMessageSendNode: self
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpMessageSendNode >> addArgument: argument [ 
 
 	argument parent: self.
 	arguments add: argument
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> arguments [
 
 	^ arguments
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> arguments: anObject [
 
 	arguments := anObject.
 	arguments do: [ :each | each parent: self ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> cast [
 
 	^ cast
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> cast: anObject [
 
 	cast := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> genericTypeArgument [
 
 	^ genericTypeArgument
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> genericTypeArgument: anObject [
 
 	genericTypeArgument := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> initialize [ 
 
 	super initialize.
@@ -70,25 +68,25 @@ PharoCSharpMessageSendNode >> initialize [
 	arguments := OrderedCollection new.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> receiver [
 
 	^ receiver
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpMessageSendNode >> receiver: anObject [
 
 	receiver := anObject

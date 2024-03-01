@@ -1,17 +1,18 @@
+"
+The base for nodes of reduced C# AST.
+"
 Class {
-	#name : 'PharoCSharpNode',
-	#superclass : 'Object',
+	#name : #PharoCSharpNode,
+	#superclass : #Object,
 	#instVars : [
 		'parent',
 		'comments',
 		'hasParentheses'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : #'Pharo CSharp-AST'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 PharoCSharpNode class >> from: anRBNode [ 
 
 	^ self new
@@ -19,36 +20,36 @@ PharoCSharpNode class >> from: anRBNode [
 		yourself
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpNode >> acceptVisitor: aProgramNodeVisitor [
 	self subclassResponsibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> addComment: aComment [ 
 
 	comments add: aComment
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> comments [
 
 	^ comments
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> comments: anObject [
 
 	comments := anObject
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpNode >> doNotUseParenthesesForChildren [ 
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> from: anRBNode [ 
 
 	anRBNode ifNil: [ ^ self ].
@@ -60,7 +61,7 @@ PharoCSharpNode >> from: anRBNode [
 	
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> hasParentheses [
 
 	(self parent notNil 
@@ -73,13 +74,13 @@ PharoCSharpNode >> hasParentheses [
 	^ hasParentheses
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> hasParentheses: anObject [
 
 	hasParentheses := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> initialize [ 
 
 	super initialize.
@@ -87,49 +88,49 @@ PharoCSharpNode >> initialize [
 	hasParentheses := false.
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpNode >> isEmptyNode [
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> isExpression [ 
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> isSimpleExpression [ 
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> isStatement [ 
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> isThis [ 
 
 	^ false
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> parent [
 
 	^ parent
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpNode >> parent: anObject [
 
 	parent := anObject
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 PharoCSharpNode >> requiresParenthesesIfInsideExpression [ 
 
 	^ true

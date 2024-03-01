@@ -1,17 +1,18 @@
+"
+An utility node, mostly to preserver comments of the original Smalltalk nodes that are not transformed into C#
+"
 Class {
-	#name : 'PharoCSharpEmptyNode',
-	#superclass : 'PharoCSharpNode',
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#name : #PharoCSharpEmptyNode,
+	#superclass : #PharoCSharpNode,
+	#category : #'Pharo CSharp-AST'
 }
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpEmptyNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitEmptyNode: self
 ]
 
-{ #category : 'visiting' }
+{ #category : #visiting }
 PharoCSharpEmptyNode >> isEmptyNode [
 
 	^ true

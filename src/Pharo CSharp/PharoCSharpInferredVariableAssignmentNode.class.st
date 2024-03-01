@@ -1,73 +1,71 @@
 Class {
-	#name : 'PharoCSharpInferredVariableAssignmentNode',
-	#superclass : 'PharoCSharpExpressionNode',
+	#name : #PharoCSharpInferredVariableAssignmentNode,
+	#superclass : #PharoCSharpExpressionNode,
 	#instVars : [
 		'name',
 		'expression',
 		'type',
 		'modifier'
 	],
-	#category : 'Pharo CSharp-AST',
-	#package : 'Pharo CSharp',
-	#tag : 'AST'
+	#category : 'Pharo CSharp-AST'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitInferredVariableAssignmentNode: self
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> expression [
 
 	^ expression
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> expression: anObject [
 
 	expression := anObject.
 	expression parent: self.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> initialize [ 
 
 	super initialize.
 	type := 'var'.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> modifier [
 
 	^ modifier
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> modifier: anObject [
 
 	modifier := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> type [
 
 	^ type
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 PharoCSharpInferredVariableAssignmentNode >> type: anObject [
 
 	type := anObject

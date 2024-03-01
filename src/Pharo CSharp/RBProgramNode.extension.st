@@ -1,6 +1,6 @@
-Extension { #name : 'RBProgramNode' }
+Extension { #name : #RBProgramNode }
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RBProgramNode >> allChildrenWithoutBlocks [
 	| children |
 	children := OrderedCollection new.
@@ -8,25 +8,25 @@ RBProgramNode >> allChildrenWithoutBlocks [
 	^ children
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RBProgramNode >> declaresMustBeExpression [
 
 	^ self propertyAt: #mustBeExpression ifAbsent: [ false ].
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RBProgramNode >> mustBeExpression [
 
 	self mustBeExpression: true.
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RBProgramNode >> mustBeExpression: aBoolean [
 
 	self propertyAt: #mustBeExpression put: aBoolean.
 ]
 
-{ #category : '*Pharo CSharp' }
+{ #category : #'*Pharo CSharp' }
 RBProgramNode >> nonBlockNodesDo: aBlock [
 	"Evaluate aBlock on self and all chindren nodes, including comments"
 
