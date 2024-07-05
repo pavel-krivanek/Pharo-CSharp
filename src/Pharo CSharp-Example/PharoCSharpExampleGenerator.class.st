@@ -11,12 +11,12 @@ PharoCSharpExampleGenerator class >> generate [
 	<script>
 	
 	| basePath |
-	basePath := 'C:\repos\playground\' asFileReference.
+	basePath := './' asFileReference.
 	
 	self 
 		generatePackage: 'Pharo CSharp-Example' 
 		head: self head 
-		file: basePath / 'PharoCSharp-Example' / 'PharoCSharpExample.cs'.
+		file: basePath / 'PharoCSharpExample.cs'.
 		
 		
 								
