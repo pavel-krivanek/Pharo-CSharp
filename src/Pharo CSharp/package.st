@@ -1,1 +1,1 @@
-Package { #name : #'Pharo CSharp' }
+Package { #name : 'Pharo CSharp' }

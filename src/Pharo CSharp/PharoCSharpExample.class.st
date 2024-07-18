@@ -1,20 +1,21 @@
 Class {
-	#name : #PharoCSharpExample,
-	#superclass : #Object,
+	#name : 'PharoCSharpExample',
+	#superclass : 'Object',
 	#instVars : [
 		'ivar'
 	],
-	#category : 'Pharo CSharp'
+	#category : 'Pharo CSharp',
+	#package : 'Pharo CSharp'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> _slotTypes [
 
 	<slot: #ivar type: #ByteSymbol>
 	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> cascade [ 
 
 	| temp |
@@ -26,14 +27,14 @@ PharoCSharpExample >> cascade [
 		yourself)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> comment [  
 
 	"comment"
 	^ 42
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> initialize [
 
 	<var: #a type: #(Dictionary of Number keys String)>
@@ -47,7 +48,7 @@ PharoCSharpExample >> initialize [
 		
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> initialize: arg [
 
 	<arg: #arg type: #(Dictionary of Number keys String)>
@@ -63,7 +64,7 @@ PharoCSharpExample >> initialize: arg [
 		
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> lambda [ 
 
 	'string' collect: [ :each | each + 1 ].
@@ -73,7 +74,7 @@ PharoCSharpExample >> lambda [
 		each + 1 ].
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoCSharpExample >> methodWithArgument: arg [
 
 	<arg: #arg type: #(Dictionary of Number keys String)>

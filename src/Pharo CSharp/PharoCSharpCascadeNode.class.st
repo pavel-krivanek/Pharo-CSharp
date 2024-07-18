@@ -2,53 +2,55 @@
 A helper node for trasforming Smalltalk cascades into C#
 "
 Class {
-	#name : #PharoCSharpCascadeNode,
-	#superclass : #PharoCSharpNode,
+	#name : 'PharoCSharpCascadeNode',
+	#superclass : 'PharoCSharpNode',
 	#instVars : [
 		'name',
 		'expression',
 		'statements'
 	],
-	#category : #'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitCascadeNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> expression [
 
 	^ expression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> expression: anObject [
 
 	expression := anObject.
 	expression parent: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> statements [
 
 	^ statements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCascadeNode >> statements: anObject [
 
 	statements := anObject.

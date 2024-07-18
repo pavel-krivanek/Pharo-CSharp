@@ -1,6 +1,6 @@
-Extension { #name : #RBMessageNode }
+Extension { #name : 'RBMessageNode' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RBMessageNode >> originalSelector [
 
 	^ self propertyAt: #originalSelector ifAbsent: [ self selector ]

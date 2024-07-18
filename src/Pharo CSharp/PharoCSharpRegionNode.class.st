@@ -1,52 +1,54 @@
 Class {
-	#name : #PharoCSharpRegionNode,
-	#superclass : #PharoCSharpNode,
+	#name : 'PharoCSharpRegionNode',
+	#superclass : 'PharoCSharpNode',
 	#instVars : [
 		'name',
 		'methods'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitRegionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> addMethod: aMethodNode [ 
 
 	aMethodNode parent: self.
 	^ methods add: aMethodNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> initialize [ 
 
 	super initialize.
 	methods := OrderedCollection new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> methods [
 
 	^ methods
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> methods: anObject [
 
 	methods := anObject.
 	methods do: [ :each | each parent: self ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpRegionNode >> name: anObject [
 
 	name := anObject

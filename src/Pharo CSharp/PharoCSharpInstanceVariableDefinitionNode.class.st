@@ -1,21 +1,23 @@
 Class {
-	#name : #PharoCSharpInstanceVariableDefinitionNode,
-	#superclass : #PharoCSharpNode,
+	#name : 'PharoCSharpInstanceVariableDefinitionNode',
+	#superclass : 'PharoCSharpNode',
 	#instVars : [
 		'type',
 		'name',
 		'visibility',
 		'isProperty'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitInstanceVariableDefinitionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> initialize [ 
 
 	super initialize.
@@ -24,49 +26,49 @@ PharoCSharpInstanceVariableDefinitionNode >> initialize [
 	isProperty := false.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> isProperty [
 
 	^ isProperty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> isProperty: anObject [
 
 	isProperty := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> type [
 
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> type: anObject [
 
 	type := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> visibility [
 
 	^ visibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpInstanceVariableDefinitionNode >> visibility: anObject [
 
 	visibility := anObject

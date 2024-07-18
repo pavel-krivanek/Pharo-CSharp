@@ -1,58 +1,60 @@
 Class {
-	#name : #PharoCSharpUnaryExpressionNode,
-	#superclass : #PharoCSharpExpressionNode,
+	#name : 'PharoCSharpUnaryExpressionNode',
+	#superclass : 'PharoCSharpExpressionNode',
 	#instVars : [
 		'expression',
 		'operator',
 		'forceParentheses'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitUnaryExpressionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> expression [
 
 	^ expression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> expression: anObject [
 
 	expression := anObject.
 	expression parent: self.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> forceParentheses [
 
 	^ forceParentheses
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> forceParentheses: anObject [
 
 	forceParentheses := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> initialize [ 
 
 	super initialize.
 	forceParentheses := false.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> operator [
 
 	^ operator
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpUnaryExpressionNode >> operator: anObject [
 
 	operator := anObject

@@ -1,5 +1,5 @@
-Extension { #name : #PackageManifest }
+Extension { #name : 'PackageManifest' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 PackageManifest class >> ignoreInCSharp [
 ]

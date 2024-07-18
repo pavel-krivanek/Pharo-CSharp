@@ -1,14 +1,16 @@
 Class {
-	#name : #PharoCSharpPrintingVisitor,
-	#superclass : #PharoCSharpVisitor,
+	#name : 'PharoCSharpPrintingVisitor',
+	#superclass : 'PharoCSharpVisitor',
 	#instVars : [
 		'stream',
 		'indentation'
 	],
-	#category : 'Pharo CSharp-Visitors'
+	#category : 'Pharo CSharp-Visitors',
+	#package : 'Pharo CSharp',
+	#tag : 'Visitors'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 PharoCSharpPrintingVisitor class >> example1 [ 
 
 	<script>
@@ -95,19 +97,19 @@ visitor contents.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> contents [ 
 
 	^ stream contents.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> indent [
 
 	indentation timesRepeat: [ stream << '    ' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> indent: aBlock [ 
 
 	| saved |
@@ -118,14 +120,14 @@ PharoCSharpPrintingVisitor >> indent: aBlock [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> indentation [
 
 	^ String streamContents: [ :s | 
 		indentation timesRepeat: [ stream tab ] ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> initialize [ 
 
 	super initialize.
@@ -134,14 +136,14 @@ PharoCSharpPrintingVisitor >> initialize [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> printLine: aString [ 
 
 	self indent.
 	stream << aString printString; cr.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitArgumentNode: aNode [
 
 	stream << aNode type << ' ' << aNode name.
@@ -150,7 +152,7 @@ PharoCSharpPrintingVisitor >> visitArgumentNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitArrayNode: aNode [ 
 
 	self writeInlineCommentsOf: aNode.
@@ -162,7 +164,7 @@ PharoCSharpPrintingVisitor >> visitArrayNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitAssignmentNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -173,7 +175,7 @@ PharoCSharpPrintingVisitor >> visitAssignmentNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitAssociationNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -186,7 +188,7 @@ PharoCSharpPrintingVisitor >> visitAssociationNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitAtIfPresentIfAbsentStatementNode: aNode [
 
 	aNode ifPresentArgName ifNotNil: [ 
@@ -208,7 +210,7 @@ PharoCSharpPrintingVisitor >> visitAtIfPresentIfAbsentStatementNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitBinaryExpressionNode: aNode [ 
 
 	self writeInlineCommentsOf: aNode.
@@ -220,7 +222,7 @@ PharoCSharpPrintingVisitor >> visitBinaryExpressionNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitCascadeNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -232,7 +234,7 @@ PharoCSharpPrintingVisitor >> visitCascadeNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitCastAsNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -244,7 +246,7 @@ PharoCSharpPrintingVisitor >> visitCastAsNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitCastDirectNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -257,7 +259,7 @@ PharoCSharpPrintingVisitor >> visitCastDirectNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitClassNode: aNode [
 
 	| classKeyword |
@@ -300,7 +302,7 @@ PharoCSharpPrintingVisitor >> visitClassNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitConstructorNode: aNode [
 
 	aNode declarationOnly 
@@ -332,7 +334,7 @@ PharoCSharpPrintingVisitor >> visitConstructorNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitCopyExpressionNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -345,7 +347,7 @@ PharoCSharpPrintingVisitor >> visitCopyExpressionNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitEnumNode: aNode [
 
 	self writeCommentsOf: aNode.
@@ -368,7 +370,7 @@ PharoCSharpPrintingVisitor >> visitEnumNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitExpressionStatementNode: aNode [
 
 	aNode expression isEmptyNode ifTrue: [ ^ self ].
@@ -379,7 +381,7 @@ PharoCSharpPrintingVisitor >> visitExpressionStatementNode: aNode [
 	stream << ';'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitFileNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -396,7 +398,7 @@ PharoCSharpPrintingVisitor >> visitFileNode: aNode [
 		separatedBy: [ stream lf; lf ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitForEachKVPStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -413,7 +415,7 @@ PharoCSharpPrintingVisitor >> visitForEachKVPStatementNode: aNode [
 	self indent. stream << '}'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitForEachStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -429,7 +431,7 @@ PharoCSharpPrintingVisitor >> visitForEachStatementNode: aNode [
 	self indent. stream << '}'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitForWithObjectStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -448,7 +450,7 @@ PharoCSharpPrintingVisitor >> visitForWithObjectStatementNode: aNode [
 	self indent. stream << '}'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitIfElseStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -470,7 +472,7 @@ PharoCSharpPrintingVisitor >> visitIfElseStatementNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitIfElseWithVariableStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -495,7 +497,7 @@ PharoCSharpPrintingVisitor >> visitIfElseWithVariableStatementNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitIfStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -511,7 +513,7 @@ PharoCSharpPrintingVisitor >> visitIfStatementNode: aNode [
 	self indent. stream << '}'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitIfWithVariableStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -530,7 +532,7 @@ PharoCSharpPrintingVisitor >> visitIfWithVariableStatementNode: aNode [
 	self indent. stream << '}'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitInferredVariableAssignmentNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -542,7 +544,7 @@ PharoCSharpPrintingVisitor >> visitInferredVariableAssignmentNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitInstanceVariableDefinitionNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -557,7 +559,7 @@ PharoCSharpPrintingVisitor >> visitInstanceVariableDefinitionNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitInvocationNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -568,7 +570,7 @@ PharoCSharpPrintingVisitor >> visitInvocationNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitIsNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -580,7 +582,7 @@ PharoCSharpPrintingVisitor >> visitIsNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitLambdaNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -609,7 +611,7 @@ PharoCSharpPrintingVisitor >> visitLambdaNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitListLiteralNode: aNode [ 
 
 	self writeInlineCommentsOf: aNode.
@@ -621,7 +623,7 @@ PharoCSharpPrintingVisitor >> visitListLiteralNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitMessageSendArgumentNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -633,7 +635,7 @@ PharoCSharpPrintingVisitor >> visitMessageSendArgumentNode: aNode [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoCSharpPrintingVisitor >> visitMessageSendNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -661,7 +663,7 @@ PharoCSharpPrintingVisitor >> visitMessageSendNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitMethodNode: aNode [
 
 	aNode declarationOnly 
@@ -701,7 +703,7 @@ PharoCSharpPrintingVisitor >> visitMethodNode: aNode [
 		]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitNamespaceNode: aNode [
 
 	self writeCommentsOf: aNode.
@@ -716,7 +718,7 @@ PharoCSharpPrintingVisitor >> visitNamespaceNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitNewExpressionNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -739,7 +741,7 @@ PharoCSharpPrintingVisitor >> visitNewExpressionNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitNullCoalescingExpressionNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -752,7 +754,7 @@ PharoCSharpPrintingVisitor >> visitNullCoalescingExpressionNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitPlainCodeNode: aNode [
 
 	aNode ownLines ifTrue: [ 
@@ -763,7 +765,7 @@ PharoCSharpPrintingVisitor >> visitPlainCodeNode: aNode [
 	stream << aNode content.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitRegionNode: aNode [
 
 	self indent. stream << '#region ' << aNode name; lf.
@@ -771,7 +773,7 @@ PharoCSharpPrintingVisitor >> visitRegionNode: aNode [
 	self indent. stream << '#endregion'; lf
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitReturnStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -784,7 +786,7 @@ PharoCSharpPrintingVisitor >> visitReturnStatementNode: aNode [
 	stream << ';'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitSimpleExpressionNode: aNode [ 
 
 	aNode hasParentheses ifTrue: [ stream << '(' ].
@@ -794,7 +796,7 @@ PharoCSharpPrintingVisitor >> visitSimpleExpressionNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitTernaryExpressionNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -810,7 +812,7 @@ PharoCSharpPrintingVisitor >> visitTernaryExpressionNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitTryCatchStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -834,7 +836,7 @@ PharoCSharpPrintingVisitor >> visitTryCatchStatementNode: aNode [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitTupleNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -849,7 +851,7 @@ PharoCSharpPrintingVisitor >> visitTupleNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitTypeOfNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -861,7 +863,7 @@ PharoCSharpPrintingVisitor >> visitTypeOfNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitUnaryExpressionNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -872,14 +874,14 @@ PharoCSharpPrintingVisitor >> visitUnaryExpressionNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitVariableDeclarationNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
 	self indent. stream << aNode type << ' ' << aNode name << ';'; lf.	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> visitWhileStatementNode: aNode [
 
 	self writeInlineCommentsOf: aNode.
@@ -895,7 +897,7 @@ PharoCSharpPrintingVisitor >> visitWhileStatementNode: aNode [
 	self indent. stream << '}'; lf.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> writeCommentsOf: aNode [
 	
 	aNode comments do: [ :each | 
@@ -905,7 +907,7 @@ PharoCSharpPrintingVisitor >> writeCommentsOf: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpPrintingVisitor >> writeInlineCommentsOf: aNode [
 	
 	aNode comments do: [ :each | 

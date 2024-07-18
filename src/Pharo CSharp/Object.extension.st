@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 Object >> pharo: pharoBlock cSharp: cSharpBlock [ 
 
 	 ^ pharoBlock value

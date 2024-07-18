@@ -1,38 +1,40 @@
 Class {
-	#name : #PharoCSharpNullCoalescingExpressionNode,
-	#superclass : #PharoCSharpExpressionNode,
+	#name : 'PharoCSharpNullCoalescingExpressionNode',
+	#superclass : 'PharoCSharpExpressionNode',
 	#instVars : [
 		'receiver',
 		'nullExpression'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpNullCoalescingExpressionNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitNullCoalescingExpressionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpNullCoalescingExpressionNode >> nullExpression [
 
 	^ nullExpression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpNullCoalescingExpressionNode >> nullExpression: anObject [
 
 	nullExpression := anObject.
 	nullExpression parent: self.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpNullCoalescingExpressionNode >> receiver [
 
 	^ receiver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpNullCoalescingExpressionNode >> receiver: anObject [
 
 	receiver := anObject.

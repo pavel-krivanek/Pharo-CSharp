@@ -1,37 +1,39 @@
 Class {
-	#name : #PharoCSharpCastAsNode,
-	#superclass : #PharoCSharpExpressionNode,
+	#name : 'PharoCSharpCastAsNode',
+	#superclass : 'PharoCSharpExpressionNode',
 	#instVars : [
 		'expression',
 		'type'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCastAsNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitCastAsNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCastAsNode >> expression [
 
 	^ expression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCastAsNode >> expression: anObject [
 
 	expression := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCastAsNode >> type [
 
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpCastAsNode >> type: anObject [
 
 	type := anObject

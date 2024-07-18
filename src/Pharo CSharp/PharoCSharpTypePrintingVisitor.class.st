@@ -1,10 +1,12 @@
 Class {
-	#name : #PharoCSharpTypePrintingVisitor,
-	#superclass : #Object,
-	#category : 'Pharo CSharp-Visitors'
+	#name : 'PharoCSharpTypePrintingVisitor',
+	#superclass : 'Object',
+	#category : 'Pharo CSharp-Visitors',
+	#package : 'Pharo CSharp',
+	#tag : 'Visitors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> mapType: pharoType [ 
 
 	pharoType = Void ifTrue: [ ^ #void ].	
@@ -28,13 +30,13 @@ PharoCSharpTypePrintingVisitor >> mapType: pharoType [
 	^ pharoType name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> unknownTypeName [ 
 
 	^ 'unknown'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitAssociationType: aType [ 
 
 	^  'Association<{1}, {2}>{3}' format: { 
@@ -48,7 +50,7 @@ PharoCSharpTypePrintingVisitor >> visitAssociationType: aType [
 	}.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitBlockType: aType [ 
 
 	^  'Func<{1}{2}>{3}' format: { 
@@ -64,7 +66,7 @@ PharoCSharpTypePrintingVisitor >> visitBlockType: aType [
 		}
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitCollectionType: aType [ 
 
 	({ OrderedCollection. Array. ByteArray } includes: aType typeClass) ifTrue: [ 
@@ -87,7 +89,7 @@ PharoCSharpTypePrintingVisitor >> visitCollectionType: aType [
 		aType itemClasses anyOne acceptVisitor: self. }.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitDictionaryType: aType [ 
 
 	^ 'Dictionary<{1}, {2}>{3}' format: { 
@@ -101,20 +103,20 @@ PharoCSharpTypePrintingVisitor >> visitDictionaryType: aType [
 	}.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitSimpleType: aType [ 
 
 	^ (self mapType: aType typeClass), (aType nullable ifTrue: [ '?' ] ifFalse: [ '' ])
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitType: aType [ 
 
 	^ aType acceptVisitor: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTypePrintingVisitor >> visitTypeSet: aTypeSet [
 
 	aTypeSet ifEmpty: [ ^ self unknownTypeName ].

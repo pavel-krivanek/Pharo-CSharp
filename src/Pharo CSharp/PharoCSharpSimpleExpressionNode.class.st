@@ -1,48 +1,50 @@
 Class {
-	#name : #PharoCSharpSimpleExpressionNode,
-	#superclass : #PharoCSharpExpressionNode,
+	#name : 'PharoCSharpSimpleExpressionNode',
+	#superclass : 'PharoCSharpExpressionNode',
 	#instVars : [
 		'content'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoCSharpSimpleExpressionNode class >> null [ 
 
 	^ self new content: 'null'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoCSharpSimpleExpressionNode class >> this [ 
 
 	^ self new content: 'this'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpSimpleExpressionNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitSimpleExpressionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpSimpleExpressionNode >> content [
 
 	^ content
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpSimpleExpressionNode >> content: anObject [
 
 	content := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpSimpleExpressionNode >> isSimpleExpression [ 
 
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpSimpleExpressionNode >> isThis [ 
 
 	^ content = #this

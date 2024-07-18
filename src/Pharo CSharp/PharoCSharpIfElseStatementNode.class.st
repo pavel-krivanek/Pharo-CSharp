@@ -1,24 +1,26 @@
 Class {
-	#name : #PharoCSharpIfElseStatementNode,
-	#superclass : #PharoCSharpIfStatementNode,
+	#name : 'PharoCSharpIfElseStatementNode',
+	#superclass : 'PharoCSharpIfStatementNode',
 	#instVars : [
 		'elseStatements'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfElseStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitIfElseStatementNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfElseStatementNode >> elseStatements [
 
 	^ elseStatements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfElseStatementNode >> elseStatements: anObject [
 
 	elseStatements := anObject.

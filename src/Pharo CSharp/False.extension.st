@@ -1,12 +1,12 @@
-Extension { #name : #False }
+Extension { #name : 'False' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 False >> asCSharpLiteral [
 
 	^ 'false'
 ]
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 False >> asCSharpLiteralIn: aVisitor [ 
 
 	^ PharoCSharpSimpleExpressionNode new content: self asCSharpLiteral

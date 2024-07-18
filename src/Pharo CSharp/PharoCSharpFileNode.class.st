@@ -1,47 +1,49 @@
 Class {
-	#name : #PharoCSharpFileNode,
-	#superclass : #PharoCSharpNode,
+	#name : 'PharoCSharpFileNode',
+	#superclass : 'PharoCSharpNode',
 	#instVars : [
 		'name',
 		'usings',
 		'classes',
 		'children'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitFileNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> addChild: aChild [ 
 
 	aChild parent: self.
 	^ children add: aChild
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> addUsing: using [
 
 	^ usings add: using
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> children [
 
 	^ children
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> children: anObject [
 
 	children := anObject.
 	children do: [ :each | each parent: self ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> initialize [ 
 
 	super initialize.
@@ -50,25 +52,25 @@ PharoCSharpFileNode >> initialize [
 	children := OrderedCollection new.	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> usings [
 
 	^ usings
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpFileNode >> usings: anObject [
 
 	usings := anObject

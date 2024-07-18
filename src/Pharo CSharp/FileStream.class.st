@@ -1,5 +1,7 @@
 Class {
-	#name : #FileStream,
-	#superclass : #Object,
-	#category : #'Pharo CSharp-Class placeholders'
+	#name : 'FileStream',
+	#superclass : 'Object',
+	#category : 'Pharo CSharp-Class placeholders',
+	#package : 'Pharo CSharp',
+	#tag : 'Class placeholders'
 }

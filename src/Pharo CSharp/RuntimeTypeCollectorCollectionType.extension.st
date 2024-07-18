@@ -1,6 +1,6 @@
-Extension { #name : #RuntimeTypeCollectorCollectionType }
+Extension { #name : 'RuntimeTypeCollectorCollectionType' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RuntimeTypeCollectorCollectionType >> mergeWith: collectorType [
 
 	| premergedToCommonSuperclass|
@@ -15,7 +15,7 @@ RuntimeTypeCollectorCollectionType >> mergeWith: collectorType [
 		
 ]
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RuntimeTypeCollectorCollectionType >> preMerge [ 
 
 	| merged |

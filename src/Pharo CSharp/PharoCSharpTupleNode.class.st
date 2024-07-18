@@ -1,64 +1,66 @@
 Class {
-	#name : #PharoCSharpTupleNode,
-	#superclass : #PharoCSharpNode,
+	#name : 'PharoCSharpTupleNode',
+	#superclass : 'PharoCSharpNode',
 	#instVars : [
 		'firstName',
 		'firstValue',
 		'secondName',
 		'secondValue'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitTupleNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> firstName [
 
 	^ firstName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> firstName: anObject [
 
 	firstName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> firstValue [
 
 	^ firstValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> firstValue: anObject [
 
 	firstValue := anObject.
 	firstValue parent: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> secondName [
 
 	^ secondName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> secondName: anObject [
 
 	secondName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> secondValue [
 
 	^ secondValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpTupleNode >> secondValue: anObject [
 
 	secondValue := anObject.

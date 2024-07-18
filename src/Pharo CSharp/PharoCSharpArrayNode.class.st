@@ -2,26 +2,28 @@
 C# node corresponding to Smalltalk array literals
 "
 Class {
-	#name : #PharoCSharpArrayNode,
-	#superclass : #PharoCSharpExpressionNode,
+	#name : 'PharoCSharpArrayNode',
+	#superclass : 'PharoCSharpExpressionNode',
 	#instVars : [
 		'content'
 	],
-	#category : #'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 PharoCSharpArrayNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitArrayNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpArrayNode >> content [
 
 	^ content
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpArrayNode >> content: anObject [
 
 	content := anObject.

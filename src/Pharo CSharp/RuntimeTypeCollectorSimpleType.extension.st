@@ -1,13 +1,13 @@
-Extension { #name : #RuntimeTypeCollectorSimpleType }
+Extension { #name : 'RuntimeTypeCollectorSimpleType' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RuntimeTypeCollectorSimpleType >> mappedUsing: aBuildingVisitor [
 
 	^ (aBuildingVisitor mapType: self typeClass), (nullable ifTrue: [ '?' ] ifFalse: [ '' ])
 
 ]
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RuntimeTypeCollectorSimpleType >> mergeWith: collectorType [
 
 	| commonSuperclass |

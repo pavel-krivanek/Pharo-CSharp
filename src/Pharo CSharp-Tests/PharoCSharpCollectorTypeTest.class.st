@@ -9,7 +9,7 @@ Class {
 PharoCSharpCollectorTypeTest >> testLiteralsAssociation [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(Association key String value Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(Association key String value Integer).
 	self assert: type isCollection.
 	self assert: type anyOne isAssociationType.
 	self assert: type anyOne typeClass equals: Association.
@@ -18,7 +18,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsAssociation [
 	self assert: type anyOne valueClasses anyOne isSimpleType.
 	self assert: type anyOne valueClasses anyOne typeClass equals: Integer.
 
-	type := SchmidtTypeCollectorType fromLiteral: #((Association key String value Integer)).
+	type := RuntimeTypeCollectorType fromLiteral: #((Association key String value Integer)).
 	self assert: type isCollection.
 	self assert: type anyOne isAssociationType.
 	self assert: type anyOne typeClass equals: Association.
@@ -27,7 +27,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsAssociation [
 	self assert: type anyOne valueClasses anyOne isSimpleType.
 	self assert: type anyOne valueClasses anyOne typeClass equals: Integer.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Association key (String Integer) value #(Object UndefinedObject )).
+	type := RuntimeTypeCollectorType fromLiteral: #(Association key (String Integer) value #(Object UndefinedObject )).
 	self assert: type isCollection.
 	self assert: type anyOne isAssociationType.
 	self assert: type anyOne typeClass equals: Association.
@@ -43,7 +43,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsAssociation [
 PharoCSharpCollectorTypeTest >> testLiteralsBlockArguments [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments Integer).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne typeClass equals: FullBlockClosure.
@@ -53,7 +53,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlockArguments [
 	self assert: type anyOne argumentClasses anyOne anyOne isSimpleType.
 	self assert: type anyOne argumentClasses anyOne anyOne typeClass equals: Integer.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(Integer String)).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(Integer String)).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne typeClass equals: FullBlockClosure.
@@ -62,7 +62,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlockArguments [
 	self assert: (type anyOne argumentClasses allSatisfy: [ :each | each anyOne isSimpleType ]).
 	self assert: (type anyOne argumentClasses collect: [ :each | each anyOne typeClass ]) equals: { Integer. String }.
 	
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments ((Array of String))).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments ((Array of String))).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne typeClass equals: FullBlockClosure.
@@ -76,7 +76,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlockArguments [
 PharoCSharpCollectorTypeTest >> testLiteralsBlockArgumentsReturning [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments Integer returning String).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments Integer returning String).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne typeClass equals: FullBlockClosure.
@@ -86,7 +86,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlockArgumentsReturning [
 	self assert: type anyOne returnClasses anyOne isSimpleType.
 	self assert: type anyOne returnClasses anyOne typeClass equals: String.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(Integer String) returning #(Object UndefinedObject)).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments #(Integer String) returning #(Object UndefinedObject)).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne typeClass equals: FullBlockClosure.
@@ -96,7 +96,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlockArgumentsReturning [
 	self assert: (type anyOne returnClasses allSatisfy: [ :each | each isSimpleType ]).
 	self assert: (type anyOne returnClasses collect: [ :each | each typeClass ]) equals: { Object. UndefinedObject } asSet.
 	
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments ((Collection of String)) returning #(Object UndefinedObject)).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments ((Collection of String)) returning #(Object UndefinedObject)).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne typeClass equals: FullBlockClosure.
@@ -112,7 +112,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlockArgumentsReturning [
 PharoCSharpCollectorTypeTest >> testLiteralsBlocksReturing [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure returning Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure returning Integer).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne argumentClasses isEmpty.
@@ -120,7 +120,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlocksReturing [
 	self assert: type anyOne returnClasses anyOne isSimpleType.
 	self assert: type anyOne returnClasses anyOne typeClass equals: Integer.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure returning #(Integer String)).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure returning #(Integer String)).
 	self assert: type isCollection.
 	self assert: type anyOne isBlockType.
 	self assert: type anyOne argumentClasses isEmpty.
@@ -134,20 +134,20 @@ PharoCSharpCollectorTypeTest >> testLiteralsBlocksReturing [
 PharoCSharpCollectorTypeTest >> testLiteralsCollection [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(Array of String).
+	type := RuntimeTypeCollectorType fromLiteral: #(Array of String).
 	self assert: type isCollection.
 	self assert: type anyOne isCollectionType.
 	self assert: type anyOne typeClass equals: Array.
 	self assert: type anyOne itemClasses anyOne isSimpleType.
 	self assert: type anyOne itemClasses anyOne typeClass equals: String.
 
-	type := SchmidtTypeCollectorType fromLiteral: #((Array of String)).
+	type := RuntimeTypeCollectorType fromLiteral: #((Array of String)).
 	self assert: type isCollection.
 	self assert: type anyOne isCollectionType.
 	self assert: type anyOne itemClasses anyOne isSimpleType.
 	self assert: type anyOne itemClasses anyOne typeClass equals: String.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Array of (String Integer) ).
+	type := RuntimeTypeCollectorType fromLiteral: #(Array of (String Integer) ).
 	self assert: type isCollection.
 	self assert: type anyOne isCollectionType.
 	self assert: (type anyOne itemClasses allSatisfy: [ :each | each isSimpleType ]).
@@ -159,7 +159,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsCollection [
 PharoCSharpCollectorTypeTest >> testLiteralsDictionary [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
 	self assert: type isCollection.
 	self assert: type anyOne isDictionaryType.
 	self assert: type anyOne typeClass equals: Dictionary.
@@ -168,7 +168,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsDictionary [
 	self assert: type anyOne keyClasses anyOne isSimpleType.
 	self assert: type anyOne keyClasses anyOne typeClass equals: Integer.
 
-	type := SchmidtTypeCollectorType fromLiteral: #((Dictionary of String keys Integer)).
+	type := RuntimeTypeCollectorType fromLiteral: #((Dictionary of String keys Integer)).
 	self assert: type isCollection.
 	self assert: type anyOne isDictionaryType.
 	self assert: type anyOne typeClass equals: Dictionary.
@@ -177,7 +177,7 @@ PharoCSharpCollectorTypeTest >> testLiteralsDictionary [
 	self assert: type anyOne keyClasses anyOne isSimpleType.
 	self assert: type anyOne keyClasses anyOne typeClass equals: Integer.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(SmallDictionary of (String Integer) keys #(Object UndefinedObject )).
+	type := RuntimeTypeCollectorType fromLiteral: #(SmallDictionary of (String Integer) keys #(Object UndefinedObject )).
 	self assert: type isCollection.
 	self assert: type anyOne isDictionaryType.
 	self assert: type anyOne typeClass equals: SmallDictionary.
@@ -193,12 +193,12 @@ PharoCSharpCollectorTypeTest >> testLiteralsDictionary [
 PharoCSharpCollectorTypeTest >> testLiteralsSimple [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #String.
+	type := RuntimeTypeCollectorType fromLiteral: #String.
 	self assert: type isCollection.
 	self assert: type anyOne isSimpleType.
 	self assert: type anyOne typeClass equals: String.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(String).
+	type := RuntimeTypeCollectorType fromLiteral: #(String).
 	self assert: type isCollection.
 	self assert: type anyOne isSimpleType.
 	self assert: type anyOne typeClass equals: String.
@@ -209,8 +209,8 @@ PharoCSharpCollectorTypeTest >> testLiteralsSimple [
 PharoCSharpCollectorTypeTest >> testMergeAssociation01 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(Association key SmallInteger value String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Association key LargeInteger value Symbol)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(Association key SmallInteger value String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Association key LargeInteger value Symbol)) anyOne.
 
 	merged := type1 mergeWith: type2.
 
@@ -226,8 +226,8 @@ PharoCSharpCollectorTypeTest >> testMergeAssociation01 [
 PharoCSharpCollectorTypeTest >> testMergeBlock01 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments (String SmallInteger) returning String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments (Symbol LargeInteger) returning Number)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments (String SmallInteger) returning String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments (Symbol LargeInteger) returning Number)) anyOne.
 
 	merged := type1 mergeWith: type2.
 
@@ -243,8 +243,8 @@ PharoCSharpCollectorTypeTest >> testMergeBlock01 [
 PharoCSharpCollectorTypeTest >> testMergeBlock02 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments (String SmallInteger) returning String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments (Symbol LargeInteger Integer) returning Number)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments (String SmallInteger) returning String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments (Symbol LargeInteger Integer) returning Number)) anyOne.
 
 	merged := type1 mergeWith: type2.
 
@@ -256,8 +256,8 @@ PharoCSharpCollectorTypeTest >> testMergeBlock02 [
 PharoCSharpCollectorTypeTest >> testMergeBlock03 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments () returning String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments () returning Number)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments () returning String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments () returning Number)) anyOne.
 
 	merged := type1 mergeWith: type2.
 
@@ -269,8 +269,8 @@ PharoCSharpCollectorTypeTest >> testMergeBlock03 [
 PharoCSharpCollectorTypeTest >> testMergeCollection01 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(Array of String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Array of String)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(Array of String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Array of String)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isCollectionType.
@@ -283,8 +283,8 @@ PharoCSharpCollectorTypeTest >> testMergeCollection01 [
 PharoCSharpCollectorTypeTest >> testMergeCollection02 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(Array of String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(OrderedCollection of String)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(Array of String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(OrderedCollection of String)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isCollectionType.
@@ -298,8 +298,8 @@ PharoCSharpCollectorTypeTest >> testMergeCollection02 [
 PharoCSharpCollectorTypeTest >> testMergeDictionary01 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(Dictionary of SmallInteger keys String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Dictionary of LargeInteger keys Symbol)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(Dictionary of SmallInteger keys String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Dictionary of LargeInteger keys Symbol)) anyOne.
 
 	merged := type1 mergeWith: type2.
 
@@ -315,8 +315,8 @@ PharoCSharpCollectorTypeTest >> testMergeDictionary01 [
 PharoCSharpCollectorTypeTest >> testMergeDictionary02 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #(Dictionary of SmallInteger keys String)) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(SmallDictionary of LargeInteger keys Symbol)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #(Dictionary of SmallInteger keys String)) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(SmallDictionary of LargeInteger keys Symbol)) anyOne.
 
 	merged := type1 mergeWith: type2.
 
@@ -328,23 +328,23 @@ PharoCSharpCollectorTypeTest >> testMergeDictionary02 [
 PharoCSharpCollectorTypeTest >> testMergeSimple01 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
 	self assert: merged typeClass equals: String.
 	self deny: merged nullable.
 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #Symbol) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #Symbol) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
 	self assert: merged typeClass equals: String.
 	
-	type1 := (SchmidtTypeCollectorType fromLiteral: #Dictionary) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #OrderedCollection) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #Dictionary) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #OrderedCollection) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -356,8 +356,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple01 [
 PharoCSharpCollectorTypeTest >> testMergeSimple02 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Array of Integer)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Array of Integer)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -369,8 +369,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple02 [
 PharoCSharpCollectorTypeTest >> testMergeSimple03 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Dictionary of Integer keys Symbol)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Dictionary of Integer keys Symbol)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -382,8 +382,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple03 [
 PharoCSharpCollectorTypeTest >> testMergeSimple04 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(BlockClosure returning Integer)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(BlockClosure returning Integer)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -395,8 +395,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple04 [
 PharoCSharpCollectorTypeTest >> testMergeSimple05 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Association key Integer value String)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Association key Integer value String)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -408,8 +408,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple05 [
 PharoCSharpCollectorTypeTest >> testMergeSimple06 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -422,8 +422,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple06 [
 PharoCSharpCollectorTypeTest >> testMergeSimple07 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -436,8 +436,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple07 [
 PharoCSharpCollectorTypeTest >> testMergeSimple08 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #UndefinedObject) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -450,8 +450,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple08 [
 PharoCSharpCollectorTypeTest >> testMergeSimple09 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne nullable: true.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Array of Integer)) anyOne.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne nullable: true.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Array of Integer)) anyOne.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.
@@ -464,8 +464,8 @@ PharoCSharpCollectorTypeTest >> testMergeSimple09 [
 PharoCSharpCollectorTypeTest >> testMergeSimple10 [
 
 	| type1 type2 merged | 
-	type1 := (SchmidtTypeCollectorType fromLiteral: #String) anyOne.
-	type2 := (SchmidtTypeCollectorType fromLiteral: #(Array of Integer)) anyOne nullable: true.
+	type1 := (RuntimeTypeCollectorType fromLiteral: #String) anyOne.
+	type2 := (RuntimeTypeCollectorType fromLiteral: #(Array of Integer)) anyOne nullable: true.
 	merged := type1 mergeWith: type2.
 
 	self assert: merged isSimpleType.

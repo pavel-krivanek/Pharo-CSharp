@@ -1,6 +1,6 @@
-Extension { #name : #CompiledMethod }
+Extension { #name : 'CompiledMethod' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 CompiledMethod >> allTempAndArgNames [ 
 
 	^ ((self temporaryVariables collect: [:each | each name ])

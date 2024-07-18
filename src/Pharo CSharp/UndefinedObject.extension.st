@@ -1,12 +1,12 @@
-Extension { #name : #UndefinedObject }
+Extension { #name : 'UndefinedObject' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 UndefinedObject >> asCSharpLiteral [
 
 	^ 'null'
 ]
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 UndefinedObject >> asCSharpLiteralIn: aVisitor [ 
 
 	^ PharoCSharpSimpleExpressionNode new content: self asCSharpLiteral

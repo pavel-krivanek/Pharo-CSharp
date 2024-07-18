@@ -329,7 +329,7 @@ public long If()
 PharoCSharpTest >> testImplicitReturn [
 
 	self test: PharoCSharpTestClass>>#implicitReturn equals: '
-public PdmCSharpTestClass ImplicitReturn()
+public PharoCSharpTestClass ImplicitReturn()
 {
 	return this;
 }
@@ -623,7 +623,7 @@ public long Ternary()
 PharoCSharpTest >> testTernaryInBlockNotReturningValue [
 
 	self test: PharoCSharpTestClass>>#ternaryInBlockNotReturningValue equals: '
-public PdmCSharpTestClass TernaryInBlockNotReturningValue()
+public PharoCSharpTestClass TernaryInBlockNotReturningValue()
 {
     object nonDict;
     long temp;

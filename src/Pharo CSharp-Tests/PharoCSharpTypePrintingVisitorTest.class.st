@@ -19,13 +19,13 @@ PharoCSharpTypePrintingVisitorTest >> setUp [
 PharoCSharpTypePrintingVisitorTest >> testAssociation [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(Association key String value Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(Association key String value Integer).
 	self assert: (visitor visitType: type anyOne) equals: 'Association<string, long>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Association key () value ()).
+	type := RuntimeTypeCollectorType fromLiteral: #(Association key () value ()).
 	self assert: (visitor visitType: type anyOne) equals: 'Association<unknown, unknown>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Association key String value Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(Association key String value Integer).
 	self assert: (visitor visitType: type anyOne beNullable) equals: 'Association<string, long>?'.
 
 
@@ -35,13 +35,13 @@ PharoCSharpTypePrintingVisitorTest >> testAssociation [
 PharoCSharpTypePrintingVisitorTest >> testBlock [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments String returning Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments String returning Integer).
 	self assert: (visitor visitType: type anyOne) equals: 'Func<string, long>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments String returning Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments String returning Integer).
 	self assert: (visitor visitType: type anyOne) equals: 'Func<string, long>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(FullBlockClosure arguments String returning Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(FullBlockClosure arguments String returning Integer).
 	self assert: (visitor visitType: type anyOne beNullable) equals: 'Func<string, long>?'.
 
 ]
@@ -50,20 +50,20 @@ PharoCSharpTypePrintingVisitorTest >> testBlock [
 PharoCSharpTypePrintingVisitorTest >> testCollection [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(Array of String).
+	type := RuntimeTypeCollectorType fromLiteral: #(Array of String).
 	self assert: (visitor visitType: type anyOne) equals: 'List<string>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Array of (Array of String) ).
+	type := RuntimeTypeCollectorType fromLiteral: #(Array of (Array of String) ).
 	self assert: (visitor visitType: type anyOne) equals: 'List<List<string>>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Array of ()).
+	type := RuntimeTypeCollectorType fromLiteral: #(Array of ()).
 	self assert: (visitor visitType: type anyOne) equals: 'List<unknown>'.
 
 	"uknown type of collection"
-	type := SchmidtTypeCollectorType fromLiteral: #(Collection of String).
+	type := RuntimeTypeCollectorType fromLiteral: #(Collection of String).
 	self assert: (visitor visitType: type anyOne) equals: 'string[]'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Array of String).
+	type := RuntimeTypeCollectorType fromLiteral: #(Array of String).
 	self assert: (visitor visitType: type anyOne beNullable) equals: 'List<string>?'.
 
 ]
@@ -72,13 +72,13 @@ PharoCSharpTypePrintingVisitorTest >> testCollection [
 PharoCSharpTypePrintingVisitorTest >> testDictionary [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
 	self assert: (visitor visitType: type anyOne) equals: 'Dictionary<long, string>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Dictionary of () keys ()).
+	type := RuntimeTypeCollectorType fromLiteral: #(Dictionary of () keys ()).
 	self assert: (visitor visitType: type anyOne) equals: 'Dictionary<unknown, unknown>'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
+	type := RuntimeTypeCollectorType fromLiteral: #(Dictionary of String keys Integer).
 	self assert: (visitor visitType: type anyOne beNullable) equals: 'Dictionary<long, string>?'.
 
 ]
@@ -87,13 +87,13 @@ PharoCSharpTypePrintingVisitorTest >> testDictionary [
 PharoCSharpTypePrintingVisitorTest >> testSimple [
 
 	| type | 
-	type := SchmidtTypeCollectorType fromLiteral: #String.
+	type := RuntimeTypeCollectorType fromLiteral: #String.
 	self assert: (visitor visitType: type anyOne) equals: 'string'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #PharoCSharpTypePrintingVisitorTest.
-	self assert: (visitor visitType: type anyOne) equals: 'PdmCSharpTypePrintingVisitorTest'.
+	type := RuntimeTypeCollectorType fromLiteral: #PharoCSharpTypePrintingVisitorTest.
+	self assert: (visitor visitType: type anyOne) equals: 'PharoCSharpTypePrintingVisitorTest'.
 
-	type := SchmidtTypeCollectorType fromLiteral: #String.
+	type := RuntimeTypeCollectorType fromLiteral: #String.
 	self assert: (visitor visitType: type anyOne beNullable) equals: 'string?'.
 	
 ]

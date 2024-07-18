@@ -1,6 +1,6 @@
-Extension { #name : #RBNode }
+Extension { #name : 'RBNode' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RBNode >> asCSharpLiteralIn: aVisitor [ 
 
 	^ self acceptVisitor: aVisitor
@@ -8,7 +8,7 @@ RBNode >> asCSharpLiteralIn: aVisitor [
 	
 ]
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 RBNode >> parentheses [ 
 
 	^ #()

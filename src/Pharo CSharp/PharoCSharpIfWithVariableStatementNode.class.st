@@ -1,37 +1,39 @@
 Class {
-	#name : #PharoCSharpIfWithVariableStatementNode,
-	#superclass : #PharoCSharpIfStatementNode,
+	#name : 'PharoCSharpIfWithVariableStatementNode',
+	#superclass : 'PharoCSharpIfStatementNode',
 	#instVars : [
 		'name',
 		'valueExpression'
 	],
-	#category : 'Pharo CSharp-AST'
+	#category : 'Pharo CSharp-AST',
+	#package : 'Pharo CSharp',
+	#tag : 'AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfWithVariableStatementNode >> acceptVisitor: aVisitor [
 	^ aVisitor visitIfWithVariableStatementNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfWithVariableStatementNode >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfWithVariableStatementNode >> name: anObject [
 
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfWithVariableStatementNode >> valueExpression [
 
 	^ valueExpression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoCSharpIfWithVariableStatementNode >> valueExpression: anObject [
 
 	valueExpression := anObject.

@@ -1,5 +1,7 @@
 Class {
-	#name : #Int32,
-	#superclass : #Object,
-	#category : #'Pharo CSharp-Class placeholders'
+	#name : 'Int32',
+	#superclass : 'Object',
+	#category : 'Pharo CSharp-Class placeholders',
+	#package : 'Pharo CSharp',
+	#tag : 'Class placeholders'
 }

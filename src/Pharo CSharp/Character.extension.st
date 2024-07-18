@@ -1,6 +1,6 @@
-Extension { #name : #Character }
+Extension { #name : 'Character' }
 
-{ #category : #'*Pharo CSharp' }
+{ #category : '*Pharo CSharp' }
 Character >> asCSharpLiteral [
 
 	^ '''', (self asString copyReplaceAll: '''' with: '\'''),  ''''
