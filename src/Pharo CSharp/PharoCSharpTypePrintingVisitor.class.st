@@ -58,7 +58,7 @@ PharoCSharpTypePrintingVisitor >> visitBlockType: aType [
 			aTypeSet 
 				ifEmpty: [ self unknownTypeName ] 
 				ifNotEmpty: [ aTypeSet anyOne acceptVisitor: self ] ]) joinUsing: ', '.			
-		(aType argumentClasses ifEmpty: '' ifNotEmpty: ', '),
+		(aType argumentClasses ifEmpty: [''] ifNotEmpty: [', ']),
 		(aType returnClasses 
 			ifEmpty: [ self unknownTypeName ] 
 			ifNotEmpty: [ aType returnClasses anyOne acceptVisitor: self ]).
