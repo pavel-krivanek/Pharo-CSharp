@@ -1,6 +1,6 @@
 Class {
 	#name : 'PharoCSharpASTBuildingVisitor',
-	#superclass : 'ASTProgramNodeVisitor',
+	#superclass : 'OCProgramNodeVisitor',
 	#instVars : [
 		'ast',
 		'method',

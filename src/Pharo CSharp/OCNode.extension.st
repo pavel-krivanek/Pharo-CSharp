@@ -1,7 +1,7 @@
-Extension { #name : 'ASTNode' }
+Extension { #name : 'OCNode' }
 
 { #category : '*Pharo CSharp' }
-ASTNode >> asCSharpLiteralIn: aVisitor [ 
+OCNode >> asCSharpLiteralIn: aVisitor [ 
 
 	^ self acceptVisitor: aVisitor
 
@@ -9,7 +9,7 @@ ASTNode >> asCSharpLiteralIn: aVisitor [
 ]
 
 { #category : '*Pharo CSharp' }
-ASTNode >> parentheses [ 
+OCNode >> parentheses [ 
 
 	^ #()
 ]

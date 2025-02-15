@@ -1,7 +1,7 @@
-Extension { #name : 'ASTMessageNode' }
+Extension { #name : 'OCMessageNode' }
 
 { #category : '*Pharo CSharp' }
-ASTMessageNode >> originalSelector [
+OCMessageNode >> originalSelector [
 
 	^ self propertyAt: #originalSelector ifAbsent: [ self selector ]
 ]

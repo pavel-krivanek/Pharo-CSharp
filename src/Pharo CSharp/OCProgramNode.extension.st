@@ -1,7 +1,7 @@
-Extension { #name : 'ASTProgramNode' }
+Extension { #name : 'OCProgramNode' }
 
 { #category : '*Pharo CSharp' }
-ASTProgramNode >> allChildrenWithoutBlocks [
+OCProgramNode >> allChildrenWithoutBlocks [
 	| children |
 	children := OrderedCollection new.
 	self nonBlockNodesDo: [ :each | children addLast: each ].
@@ -9,25 +9,25 @@ ASTProgramNode >> allChildrenWithoutBlocks [
 ]
 
 { #category : '*Pharo CSharp' }
-ASTProgramNode >> declaresMustBeExpression [
+OCProgramNode >> declaresMustBeExpression [
 
 	^ self propertyAt: #mustBeExpression ifAbsent: [ false ].
 ]
 
 { #category : '*Pharo CSharp' }
-ASTProgramNode >> mustBeExpression [
+OCProgramNode >> mustBeExpression [
 
 	self mustBeExpression: true.
 ]
 
 { #category : '*Pharo CSharp' }
-ASTProgramNode >> mustBeExpression: aBoolean [
+OCProgramNode >> mustBeExpression: aBoolean [
 
 	self propertyAt: #mustBeExpression put: aBoolean.
 ]
 
 { #category : '*Pharo CSharp' }
-ASTProgramNode >> nonBlockNodesDo: aBlock [
+OCProgramNode >> nonBlockNodesDo: aBlock [
 	"Evaluate aBlock on self and all chindren nodes, including comments"
 
 	aBlock value: self.
